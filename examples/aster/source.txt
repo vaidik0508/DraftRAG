@@ -1,0 +1,13 @@
+PROJECT ASTER OPERATIONS HANDBOOK
+
+Project Aster is the company’s internal release system. Production deployments require an Amber clearance. A standard deployment window runs from 09:00 to 17:00 India Standard Time on business days. Any deployment outside that window is classified as an after-hours deployment.
+
+To earn Amber clearance, an engineer must complete the Release Safety course, score at least 85 percent on its final quiz, and perform one supervised staging deployment. Clearance expires after 180 days. An expired clearance must be renewed by retaking the quiz; the staging deployment does not need to be repeated.
+
+Mira Shah completed the Release Safety course on 3 August 2026, scored 91 percent, and performed her supervised staging deployment with Chen Rao on 7 August 2026. Her Amber clearance was issued on 8 August 2026.
+
+Every after-hours Aster deployment needs written approval from the on-call Release Captain. The approval must include the change ticket, rollback owner, and expected completion time. Manager approval alone is not sufficient. During the week of 24–30 August 2026, the on-call Release Captain is Ishan Mehta.
+
+Before starting any production deployment, the engineer must verify that the rollback package is less than seven days old and post the change ticket in the #aster-releases channel. For an after-hours deployment, the engineer must also open a live incident bridge before the first production command.
+
+If Aster is unavailable, engineers must stop the deployment rather than bypass its checks. They should contact the Reliability Desk at extension 7712. Only the Reliability Desk may authorize the documented manual fallback procedure.
