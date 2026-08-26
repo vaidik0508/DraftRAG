@@ -2,6 +2,8 @@
 
 ### Retrieval requests written inside the answer draft—without a dedicated embedding model
 
+![Animated overview of the DraftRAG retrieval and refinement loop](examples/draftrag-flow.svg)
+
 DraftRAG is a small research prototype that explores a different retrieval-augmented
 generation loop. Instead of embedding documents and questions with a separate embedding
 model, one general-purpose LLM creates an interpretable, corpus-specific semantic

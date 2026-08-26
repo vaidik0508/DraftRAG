@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">DraftRAG chronological architecture</title>
+  <desc id="desc">One general LLM creates semantic dimension guidelines, scores chunks, drafts an answer, requests evidence on demand, and refines until complete.</desc>
+  <defs>
+    <linearGradient id="llm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#20bde5"/><stop offset="1" stop-color="#8867e8"/></linearGradient>
+    <linearGradient id="answer" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#18ad83"/><stop offset="1" stop-color="#18add3"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#7186a2"/></marker>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .head{fill:#18243a;font:700 16px Inter,ui-sans-serif,system-ui,sans-serif}.body{fill:#40516a;font:12px Inter,ui-sans-serif,system-ui,sans-serif}
+      .small{fill:#64758d;font:11px Inter,ui-sans-serif,system-ui,sans-serif}.label{fill:#49627d;font:700 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.25px}.s2 .label,.s3 .label{font-size:7.5px}
+      .code{fill:#263750;font:11px ui-monospace,SFMono-Regular,Menlo,monospace}.arrow{fill:none;stroke:#7186a2;stroke-width:2;marker-end:url(#arrow)}
+      .dash{fill:none;stroke:#8195af;stroke-width:2;stroke-dasharray:6 7;marker-end:url(#arrow)}
+      .step{opacity:.55;animation:focus 16s ease-in-out infinite}.s1{animation-delay:0s}.s2{animation-delay:2s}.s3{animation-delay:4s}.s4{animation-delay:6s}.s5{animation-delay:8s}.s6{animation-delay:10s}.s7{animation-delay:12s}.s8{animation-delay:14s}
+      .request{animation:request 16s ease-in-out infinite}.result{animation:result 16s ease-in-out infinite}.complete{animation:complete 16s ease-in-out infinite}.loop{animation:loop 16s ease-in-out infinite}
+      @keyframes focus{0%,10%{opacity:1}13%,96%{opacity:.55}100%{opacity:1}}
+      @keyframes request{0%,59%,100%{opacity:.3}64%,77%{opacity:1;filter:url(#glow)}83%,96%{opacity:.4}}
+      @keyframes result{0%,72%,100%{opacity:.25}77%,91%{opacity:1}96%{opacity:.45}}
+      @keyframes complete{0%,85%,100%{opacity:0}90%,97%{opacity:1}}
+      @keyframes loop{0%,85%,100%{opacity:.2;stroke-dashoffset:40}90%,97%{opacity:1;stroke-dashoffset:0}}
+      @media(prefers-reduced-motion:reduce){*{animation:none!important}.step,.request,.result,.complete,.loop{opacity:1}}
+    </style>
+  </defs>
+
+  <rect width="1200" height="680" rx="24" fill="#ffffff"/>
+  <rect x="1" y="1" width="1198" height="678" rx="23" fill="none" stroke="#c9d4e3" stroke-width="2"/>
+  <text x="48" y="52" fill="#152238" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="27" font-weight="750">One LLM. Retrieval exactly when the answer needs it.</text>
+  <text x="48" y="78" class="body">First build interpretable dimensions and a local index. Then draft, retrieve on demand, and refine.</text>
+  <g transform="translate(941 39)"><rect width="211" height="35" rx="17.5" fill="#eaf8fb" stroke="#48a7c1"/><circle cx="19" cy="17.5" r="5" fill="#18ad83"/><text x="34" y="22" fill="#15536a" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="700">NO EMBEDDING MODEL/API</text></g>
+
+  <rect x="48" y="105" width="1104" height="223" rx="19" fill="#f2f9fc" stroke="#b9dce9"/>
+  <rect x="67" y="92" width="136" height="27" rx="13.5" fill="#dff3fa" stroke="#58abc5"/>
+  <text x="135" y="110" text-anchor="middle" fill="#23647a" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="750">PREPARE ONCE</text>
+  <path class="arrow" d="M272 218H300"/><path class="arrow" d="M554 218H582"/><path class="arrow" d="M836 218H864"/>
+
+  <g class="step s1">
+    <rect x="75" y="139" width="197" height="157" rx="15" fill="#fff" stroke="#75adc4" stroke-width="1.5"/>
+    <text class="label" x="94" y="164">01 · SOURCE</text><text class="head" x="94" y="190">Chunk documents</text>
+    <rect x="94" y="207" width="159" height="61" rx="8" fill="#edf3f8"/>
+    <path d="M108 220h91m-91 13h127m-127 13h107m-107 13h73" stroke="#7890ad" stroke-width="4" stroke-linecap="round"/>
+    <text class="small" x="94" y="285">raw corpus → text chunks</text>
+  </g>
+
+  <g class="step s2">
+    <rect x="300" y="139" width="254" height="157" rx="15" fill="#fff" stroke="#75adc4" stroke-width="1.5"/>
+    <text class="label" x="319" y="164">02 · LLM CREATES GUIDELINES</text>
+    <circle cx="340" cy="201" r="22" fill="url(#llm)"/><text x="340" y="205" text-anchor="middle" fill="#fff" font-family="Inter,system-ui" font-size="10" font-weight="800">LLM</text>
+    <text class="head" x="375" y="195">Semantic scorecard</text><text class="small" x="375" y="214">N interpretable dimensions</text>
+    <rect x="319" y="232" width="216" height="41" rx="8" fill="#f2ecfc" stroke="#9a7bc9"/>
+    <text class="code" x="330" y="249">authority · time · version</text><text class="code" x="330" y="265">0 · .25 · .50 · .75 · 1</text>
+    <text class="small" x="319" y="286">saved: embedding_rules.md</text>
+  </g>
+
+  <g class="step s3">
+    <rect x="582" y="139" width="254" height="157" rx="15" fill="#fff" stroke="#75adc4" stroke-width="1.5"/>
+    <text class="label" x="601" y="164">03 · LLM SCORES EVERY CHUNK</text>
+    <circle cx="622" cy="201" r="22" fill="url(#llm)"/><text x="622" y="205" text-anchor="middle" fill="#fff" font-family="Inter,system-ui" font-size="10" font-weight="800">LLM</text>
+    <text class="head" x="657" y="195">Apply same rules</text><text class="small" x="657" y="214">partial values encouraged</text>
+    <text class="code" x="601" y="243">#01 [0, .4, .8, .1 …]</text><text class="code" x="601" y="262">#02 [.7, .2, .3, .9 …]</text>
+    <text class="small" x="601" y="286">corpus-specific vectors</text>
+  </g>
+
+  <g class="step s4">
+    <rect x="864" y="139" width="261" height="157" rx="15" fill="#fff" stroke="#75adc4" stroke-width="1.5"/>
+    <text class="label" x="883" y="164">04 · LOCAL INDEX READY</text><text class="head" x="883" y="190">Text + score vectors</text>
+    <rect x="883" y="207" width="223" height="24" rx="6" fill="#eaf8f4" stroke="#45a188"/><text class="code" x="893" y="223">chunk #01  [0,.4,.8…]</text>
+    <rect x="883" y="238" width="223" height="24" rx="6" fill="#eaf8f4" stroke="#45a188"/><text class="code" x="893" y="254">chunk #02  [.7,.2,.3…]</text>
+    <text class="small" x="883" y="285">saved locally: rag_index.json</text>
+  </g>
+
+  <path class="dash" d="M994 296V341H181V401"/>
+  <rect x="48" y="365" width="1104" height="257" rx="19" fill="#faf7ff" stroke="#d5c8eb"/>
+  <rect x="67" y="352" width="176" height="27" rx="13.5" fill="#eee7fb" stroke="#9d84c7"/>
+  <text x="155" y="370" text-anchor="middle" fill="#654c91" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="750">ANSWER ON DEMAND</text>
+  <path class="arrow" d="M286 485H314"/><path class="arrow" d="M560 485H588"/><path class="arrow" d="M834 485H862"/>
+
+  <g class="step s5">
+    <rect x="75" y="402" width="211" height="166" rx="15" fill="#fff" stroke="#a995ce" stroke-width="1.5"/>
+    <text class="label" x="94" y="427">05 · QUESTION TIME</text><text class="head" x="94" y="453">Question + guidelines</text>
+    <rect x="94" y="470" width="173" height="49" rx="8" fill="#f2f5f9"/><text class="code" x="105" y="491">“Who approves it,</text><text class="code" x="105" y="508">and under what rule?”</text>
+    <text class="small" x="94" y="542">0 source chunks initially</text>
+  </g>
+
+  <g class="step s6">
+    <rect x="314" y="402" width="246" height="166" rx="15" fill="#fff" stroke="#a995ce" stroke-width="1.5"/>
+    <text class="label" x="333" y="427">06 · LLM DRAFTS FIRST</text>
+    <circle cx="355" cy="469" r="22" fill="url(#llm)"/><text x="355" y="473" text-anchor="middle" fill="#fff" font-family="Inter,system-ui" font-size="10" font-weight="800">LLM</text>
+    <text class="body" x="390" y="465">Answers until an</text><text class="body" x="390" y="482">evidence gap appears</text>
+    <g class="request"><rect x="333" y="502" width="208" height="42" rx="8" fill="#f2ecfc" stroke="#916ac5"/><text x="344" y="519" fill="#60418e" font-family="ui-monospace,monospace" font-size="10">[[RETRIEVE: approver, rule</text><text x="344" y="534" fill="#60418e" font-family="ui-monospace,monospace" font-size="10">vector:[.8,.3,.7,…]]]</text></g>
+    <text class="small" x="333" y="559">retrieval intent written inline</text>
+  </g>
+
+  <g class="step s7">
+    <rect x="588" y="402" width="246" height="166" rx="15" fill="#fff" stroke="#a995ce" stroke-width="1.5"/>
+    <text class="label" x="607" y="427">07 · RETRIEVE RIGHT NOW</text><text class="head" x="607" y="453">Local cosine search</text>
+    <g class="result"><rect x="607" y="469" width="208" height="34" rx="7" fill="#eaf8f4" stroke="#45a188"/><rect x="619" y="480" width="116" height="5" rx="2.5" fill="#22b98b"/><text class="code" x="773" y="489">#07</text><rect x="607" y="511" width="208" height="34" rx="7" fill="#eaf8f4" stroke="#45a188"/><rect x="619" y="522" width="153" height="5" rx="2.5" fill="#22b98b"/><text class="code" x="773" y="531">#12</text></g>
+    <text class="small" x="607" y="559">only top-k enters context</text>
+  </g>
+
+  <g class="step s8">
+    <rect x="862" y="402" width="263" height="166" rx="15" fill="#fff" stroke="#a995ce" stroke-width="1.5"/>
+    <text class="label" x="881" y="427">08 · SAME LLM REFINES</text>
+    <circle cx="903" cy="469" r="22" fill="url(#llm)"/><text x="903" y="473" text-anchor="middle" fill="#fff" font-family="Inter,system-ui" font-size="10" font-weight="800">LLM</text>
+    <text class="head" x="938" y="464">Replace + rewrite</text><text class="small" x="938" y="483">using retrieved evidence</text>
+    <rect x="881" y="502" width="225" height="42" rx="8" fill="#eaf8f4" stroke="#45a188"/><rect x="893" y="514" width="157" height="5" rx="2.5" fill="url(#answer)"/><rect x="893" y="527" width="128" height="5" rx="2.5" fill="#72a69a"/>
+    <g class="complete"><circle cx="1087" cy="523" r="13" fill="#35d6a3"/><path d="m1080 523 5 5 9-11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text class="small" x="881" y="559">no placeholder → final answer</text>
+  </g>
+
+  <path class="dash loop" d="M1000 581c0 64-563 67-563 3"/>
+  <rect x="506" y="599" width="301" height="27" rx="13.5" fill="#fff" stroke="#b4a3d0"/>
+  <text x="657" y="617" text-anchor="middle" fill="#64557c" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="11">still missing evidence? create the next inline query</text>
+  <text x="600" y="654" text-anchor="middle" fill="#65758d" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="11">Vectors remain interpretable · retrieval remains local · context arrives only when requested</text>
+</svg>
