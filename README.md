@@ -11,18 +11,20 @@ scorecard. The same LLM uses that scorecard to assign vectors to source chunks a
 write vectorized retrieval requests directly inside a draft answer.
 
 The draft is refined repeatedly: retrieve evidence, replace placeholders inline, and
-rewrite the entire answer. Generation stops when the LLM produces a draft with no
-retrieval placeholders.
+rewrite the entire answer. Generation normally stops when the LLM produces a draft with
+no retrieval placeholders; a configurable pass limit is the safety fallback.
 
 > **Status:** experimental proof of concept, not a production RAG replacement.
 
-See the [focused benchmark](benchmarks/README.md) comparing only Azure embedding RAG and
-DraftRAG on fictional, version-conflicting, and counterfactual corpora. It measures
-on-demand evidence accuracy, context bloat, late discovery, query diversity, and
-multi-part answer richness.
+See the [focused benchmark harness](benchmarks/README.md), designed to compare Azure
+embedding RAG with DraftRAG on fictional, version-conflicting, and counterfactual
+corpora. It measures on-demand evidence accuracy, context bloat, late discovery, query
+diversity, and multi-part answer richness.
 
 The current [canonical DraftRAG validation run](benchmarks/runs/20260826-133715/REPORT.md)
-achieved 95.6% claim recall and 83.8% gold-chunk recall with scorecard v3.
+achieved 95.6% claim recall and 83.8% gold-chunk recall with scorecard v3. This recorded
+run validates DraftRAG only; the direct embedding-RAG comparison still requires an Azure
+embedding deployment.
 
 ## The original idea
 
@@ -56,7 +58,8 @@ dimension includes an absolute, query-independent definition plus calibrated anc
 `0.0` is reserved for a property that is truly absent or opposed, while `1.0` means the
 property is direct and central. Partial values represent weak, meaningful-partial, or
 strong-but-incomplete evidence. Missing properties are not given artificial nonzero
-scores merely to make a vector dense.
+scores merely to make a vector dense. A vector becomes dense only when the text genuinely
+touches many dimensions; density is an outcome of scoring, not a quota.
 
 Example dimension families from the included test corpus:
 
@@ -75,29 +78,47 @@ The source is split into chunks. The general LLM scores every chunk from `0.0` t
 on every scorecard dimension. Chunk text and its resulting vector are saved as
 `rag_index.json` inside the selected data directory.
 
+For a compact illustration, imagine a four-dimension scorecard ordered as
+`[approval authority, timing constraints, deployment procedure, audit obligations]`.
+A chunk that describes an after-hours deployment approval rule might be scored as:
+
+```text
+[0.91, 0.76, 0.68, 0.32]
+```
+
+The values are graded semantic strengths, not probabilities, and they are meaningful
+only under that scorecard's written definitions. Real vectors contain exactly the
+configured `N` dimensions—10 by default.
+
 No dedicated embedding endpoint or embedding deployment is called.
 
 ### 3. Draft with inline retrieval requests
 
 The first answer pass receives the question and scorecard, but no source chunks. It must
 write an answer-shaped draft rather than a search plan. Missing evidence is represented
-at the exact point where it is needed:
+at the exact point where it is needed. Using the same four-dimension illustration, the
+query vector expresses how strongly the requested evidence needs each property:
 
 ```text
 The deployment requires approval from
-[[RETRIEVE: {"query":"after-hours Aster approver for 25 August 2026",
-"vector":[1.0,0.8,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0]}]].
+[[RETRIEVE: {"query":"after-hours deployment approver, procedure, and audit rule",
+"vector":[0.88,0.79,0.71,0.36]}]].
 ```
 
-Multiple placeholders may appear in one draft.
+This intentionally dense example uses partial values because all four dimensions are
+meaningfully involved. An unrelated dimension should still receive `0.0`, and a direct,
+central requirement may receive `1.0`. The inline vector records the draft writer's
+retrieval intent; the current engine re-scores the query before search, and that
+query-role vector controls retrieval. Multiple placeholders may appear in one draft.
 
 ### 4. Retrieve, replace, and refine
 
 For every placeholder, DraftRAG:
 
 1. extracts the query and draft-time vector;
-2. re-scores the query with the exact prompt used to score source chunks;
-3. compares the stabilized query vector with local chunk vectors using cosine similarity;
+2. re-scores the query with the same scorecard and calibrated instructions used during
+   indexing, plus a query-specific role instruction;
+3. compares the re-scored query vector with local chunk vectors using cosine similarity;
 4. replaces the placeholder with the best matching chunk text;
 5. adds unique retrieved chunks to a cumulative evidence bank;
 6. asks the LLM to rewrite the complete answer.
@@ -127,8 +148,9 @@ same general LLM used for drafting. This is closer to LLM-generated feature engi
 than learned dense embeddings. That distinction is important when evaluating the idea.
 
 The draft includes a proposed vector so retrieval intent remains visible inline. The
-engine re-scores its query using the same dedicated scoring prompt used during indexing;
-this reduces vector drift caused by asking the draft writer to answer and score at once.
+engine re-scores its query with a dedicated query-role prompt built from the same
+scorecard and anchors used during indexing. This reduces vector drift caused by asking
+the draft writer to answer and score at once.
 
 ## Included experiment
 
@@ -163,6 +185,11 @@ Browse the [examples directory](examples/README.md), or see the complete
 [Constitution example](examples/constitution/README.md), including the
 [recorded two-draft iteration](examples/constitution/iteration.md), source snapshot,
 generated scorecard, and 15-chunk index.
+
+> **Historical trace:** The checked-in Constitution vectors were produced by the earlier
+> endpoint-oriented prompt and are intentionally preserved as the run actually happened.
+> They demonstrate the multi-pass loop, not current scorecard-v3 calibration. Run `init`
+> and `index` again to generate absolute five-anchor rules and graded partial vectors.
 
 ## Requirements
 
@@ -217,11 +244,8 @@ python3 no_emb_rag.py self-test
 | `.env.example` | Safe Azure OpenAI configuration template |
 | `.env` | Private Azure OpenAI configuration; never commit this file |
 
-The generated rules and index are included for reproducibility of the example. Regenerate
-both when changing the source corpus or dimension count.
-
-Older checked-in examples record the original endpoint-only scorecard prompt. Run `init`
-and `index` again to use the absolute five-anchor scorecard and index-collapse checks.
+The generated rules and index are included for reproducibility of the recorded example.
+Regenerate both when changing the source corpus, dimension count, or scoring prompt.
 
 ## Why this might be interesting
 
