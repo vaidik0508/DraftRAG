@@ -14,6 +14,14 @@ retrieval placeholders.
 
 > **Status:** experimental proof of concept, not a production RAG replacement.
 
+See the [focused benchmark](benchmarks/README.md) comparing only Azure embedding RAG and
+DraftRAG on fictional, version-conflicting, and counterfactual corpora. It measures
+on-demand evidence accuracy, context bloat, late discovery, query diversity, and
+multi-part answer richness.
+
+The current [canonical DraftRAG validation run](benchmarks/runs/20260826-133715/REPORT.md)
+achieved 95.6% claim recall and 83.8% gold-chunk recall with scorecard v3.
+
 ## The original idea
 
 Traditional RAG normally performs retrieval before answer generation: chunk documents,
@@ -40,8 +48,13 @@ step.
 ### 1. Generate a corpus-specific scorecard
 
 The LLM examines a sample of the source and defines `N` semantic dimensions. Each
-dimension includes a name, the meaning of `0.0` and `1.0`, and guidance for intermediate
-scores. `N` is configurable and defaults to 10.
+dimension includes an absolute, query-independent definition plus calibrated anchors at
+`0.0`, `0.25`, `0.50`, `0.75`, and `1.0`. `N` is configurable and defaults to 10.
+
+`0.0` is reserved for a property that is truly absent or opposed, while `1.0` means the
+property is direct and central. Partial values represent weak, meaningful-partial, or
+strong-but-incomplete evidence. Missing properties are not given artificial nonzero
+scores merely to make a vector dense.
 
 Example dimension families from the included test corpus:
 
@@ -162,7 +175,8 @@ cp .env.example .env
 ```
 
 `.env` is loaded automatically and excluded by `.gitignore`.
-`AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` is intentionally unused if it is present.
+`AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME` is optional for the main prototype and enables
+the standard embedding-RAG baseline in `benchmarks/benchmark.py`.
 
 ## Quick start
 
@@ -197,11 +211,15 @@ python3 no_emb_rag.py self-test
 | --- | --- |
 | `no_emb_rag.py` | Complete prototype: Azure client, prompting, indexing, retrieval, and refinement |
 | `examples/` | Every source document, generated artifact, and iteration trace |
+| `benchmarks/` | Three 60-chunk synthetic corpora, baselines, gold questions, and recorded pilot results |
 | `.env.example` | Safe Azure OpenAI configuration template |
 | `.env` | Private Azure OpenAI configuration; never commit this file |
 
 The generated rules and index are included for reproducibility of the example. Regenerate
 both when changing the source corpus or dimension count.
+
+Older checked-in examples record the original endpoint-only scorecard prompt. Run `init`
+and `index` again to use the absolute five-anchor scorecard and index-collapse checks.
 
 ## Why this might be interesting
 

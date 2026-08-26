@@ -1,0 +1,136 @@
+{
+  "scorecard_version": 3,
+  "corpus": "counterfactual_kb",
+  "dimensions": [
+    {
+      "index": 0,
+      "name": "Atlas Eland-Fenn family",
+      "definition": "Absolute expression of the Atlas scenario family in which Joren is the administrative center of Eland and Fenn is the local token, including that family\u2019s scenario-specific moon count.",
+      "anchors": {
+        "0.0": "No Eland, Joren, or Fenn family content, or content explicitly assigning them to a different family.",
+        "0.25": "An incidental mention of Joren, Eland, or Fenn without the family relationship.",
+        "0.50": "A meaningful but partial Eland-Joren-Fenn relationship, with the administrative or token role stated but not the complete family context.",
+        "0.75": "The Eland-Joren-Fenn family is clearly established and one scenario attribute or contextual element is missing.",
+        "1.0": "The Eland-Joren-Fenn family is the direct central subject, normally with its scenario identity and associated attributes."
+      },
+      "guideline": "Score chunks and queries independently from their expressed Atlas family content; do not infer unstated scenario facts."
+    },
+    {
+      "index": 1,
+      "name": "Atlas Demer-Coda family",
+      "definition": "Absolute expression of the Atlas scenario family in which Orin is the administrative center of Demer and Coda is the local token, including that family\u2019s scenario-specific moon count.",
+      "anchors": {
+        "0.0": "No Demer, Orin, or Coda family content, or content explicitly assigning them to a different family.",
+        "0.25": "An incidental mention of Orin, Demer, or Coda without the family relationship.",
+        "0.50": "A meaningful but partial Demer-Orin-Coda relationship, with the administrative or token role stated but not the complete family context.",
+        "0.75": "The Demer-Orin-Coda family is clearly established and one scenario attribute or contextual element is missing.",
+        "1.0": "The Demer-Orin-Coda family is the direct central subject, normally with its scenario identity and associated attributes."
+      },
+      "guideline": "Score chunks and queries independently from their expressed Atlas family content; do not infer unstated scenario facts."
+    },
+    {
+      "index": 2,
+      "name": "Atlas Boros-Darel family",
+      "definition": "Absolute expression of the Atlas scenario family in which Kest is the administrative center of Boros and Darel is the local token, including that family\u2019s scenario-specific moon count.",
+      "anchors": {
+        "0.0": "No Boros, Kest, or Darel family content, or content explicitly assigning them to a different family.",
+        "0.25": "An incidental mention of Kest, Boros, or Darel without the family relationship.",
+        "0.50": "A meaningful but partial Boros-Kest-Darel relationship, with the administrative or token role stated but not the complete family context.",
+        "0.75": "The Boros-Kest-Darel family is clearly established and one scenario attribute or contextual element is missing.",
+        "1.0": "The Boros-Kest-Darel family is the direct central subject, normally with its scenario identity and associated attributes."
+      },
+      "guideline": "Score chunks and queries independently from their expressed Atlas family content; do not infer unstated scenario facts."
+    },
+    {
+      "index": 3,
+      "name": "Atlas Faron-Brin family",
+      "definition": "Absolute expression of the Atlas scenario family in which Luma is the administrative center of Faron and Brin is the local token, including that family\u2019s scenario-specific moon count.",
+      "anchors": {
+        "0.0": "No Faron, Luma, or Brin family content, or content explicitly assigning them to a different family.",
+        "0.25": "An incidental mention of Luma, Faron, or Brin without the family relationship.",
+        "0.50": "A meaningful but partial Faron-Luma-Brin relationship, with the administrative or token role stated but not the complete family context.",
+        "0.75": "The Faron-Luma-Brin family is clearly established and one scenario attribute or contextual element is missing.",
+        "1.0": "The Faron-Luma-Brin family is the direct central subject, normally with its scenario identity and associated attributes."
+      },
+      "guideline": "Score chunks and queries independently from their expressed Atlas family content; do not infer unstated scenario facts."
+    },
+    {
+      "index": 4,
+      "name": "Atlas Aven-Aster family",
+      "definition": "Absolute expression of the Atlas scenario family in which Iria is the administrative center of Aven and Aster is the local token, including that family\u2019s scenario-specific moon count.",
+      "anchors": {
+        "0.0": "No Aven, Iria, or Aster family content, or content explicitly assigning them to a different family.",
+        "0.25": "An incidental mention of Iria, Aven, or Aster without the family relationship.",
+        "0.50": "A meaningful but partial Aven-Iria-Aster relationship, with the administrative or token role stated but not the complete family context.",
+        "0.75": "The Aven-Iria-Aster family is clearly established and one scenario attribute or contextual element is missing.",
+        "1.0": "The Aven-Iria-Aster family is the direct central subject, normally with its scenario identity and associated attributes."
+      },
+      "guideline": "Score chunks and queries independently from their expressed Atlas family content; do not infer unstated scenario facts."
+    },
+    {
+      "index": 5,
+      "name": "Atlas Galen-Eko family",
+      "definition": "Absolute expression of the Atlas scenario family in which Noru is the administrative center of Galen and Eko is the local token, including that family\u2019s scenario-specific moon count.",
+      "anchors": {
+        "0.0": "No Galen, Noru, or Eko family content, or content explicitly assigning them to a different family.",
+        "0.25": "An incidental mention of Noru, Galen, or Eko without the family relationship.",
+        "0.50": "A meaningful but partial Galen-Noru-Eko relationship, with the administrative or token role stated but not the complete family context.",
+        "0.75": "The Galen-Noru-Eko family is clearly established and one scenario attribute or contextual element is missing.",
+        "1.0": "The Galen-Noru-Eko family is the direct central subject, normally with its scenario identity and associated attributes."
+      },
+      "guideline": "Score chunks and queries independently from their expressed Atlas family content; do not infer unstated scenario facts."
+    },
+    {
+      "index": 6,
+      "name": "Atlas Cyrin-Glim family",
+      "definition": "Absolute expression of the Atlas scenario family in which Meren is the administrative center of Cyrin and Glim is the local token, including that family\u2019s scenario-specific moon count.",
+      "anchors": {
+        "0.0": "No Cyrin, Meren, or Glim family content, or content explicitly assigning them to a different family.",
+        "0.25": "An incidental mention of Meren, Cyrin, or Glim without the family relationship.",
+        "0.50": "A meaningful but partial Cyrin-Meren-Glim relationship, with the administrative or token role stated but not the complete family context.",
+        "0.75": "The Cyrin-Meren-Glim family is clearly established and one scenario attribute or contextual element is missing.",
+        "1.0": "The Cyrin-Meren-Glim family is the direct central subject, normally with its scenario identity and associated attributes."
+      },
+      "guideline": "Score chunks and queries independently from their expressed Atlas family content; do not infer unstated scenario facts."
+    },
+    {
+      "index": 7,
+      "name": "simulation authority boundaries",
+      "definition": "Absolute expression of handbook authority, simulation-specific interpretation, or precedence and separation rules governing Meridian, Harbor, and Atlas facts.",
+      "anchors": {
+        "0.0": "No simulation authority or boundary content, or explicit rejection of the relevant simulation framework.",
+        "0.25": "A peripheral scope caveat, such as a routine Atlas statement that its facts do not override other simulations.",
+        "0.50": "A meaningful statement identifying a simulation-specific scope or separation without a complete precedence rule.",
+        "0.75": "A strong statement of handbook authority or cross-simulation separation with limited procedural detail.",
+        "1.0": "The direct central subject is the rule that simulation facts override ordinary knowledge or that one simulation\u2019s facts must not replace another\u2019s."
+      },
+      "guideline": "Score each chunk or query by the authority and boundary rules it explicitly states, independently of any retrieval task."
+    },
+    {
+      "index": 8,
+      "name": "Meridian civic finance",
+      "definition": "Absolute expression of Meridian civic institutions, currency, issuing authority, licensing payments, taxation, or political geography centered on Lydora.",
+      "anchors": {
+        "0.0": "No Meridian civic, financial, licensing, tax, mint, or Lydoran institutional content.",
+        "0.25": "A peripheral reference to Lydora or a civic term without an institutional or financial proposition.",
+        "0.50": "A meaningful partial civic-finance concept, such as currency identity, capital identity, or a charge mentioned without its full rule.",
+        "0.75": "A specific Meridian institutional, licensing, tax, currency, or capital proposition that is strong but not the whole surrounding procedure.",
+        "1.0": "The direct central subject is a Meridian civic-finance fact or procedure, such as Solen use, mint issuance, licensing payment, import tax, or Lydora\u2019s capital."
+      },
+      "guideline": "Score chunks and queries independently by their explicit Meridian civic or financial content; do not treat generic numbers as activation."
+    },
+    {
+      "index": 9,
+      "name": "simulation science and celestial facts",
+      "definition": "Absolute expression of simulation-specific chemistry conventions, physical constants, moon inventories, or celestial reference properties in Meridian or Harbor.",
+      "anchors": {
+        "0.0": "No simulation chemistry, physical constant, moon, or celestial-reference content, or explicit contradiction without stating such a convention.",
+        "0.25": "A peripheral scientific or celestial term without a stated property or measurement.",
+        "0.50": "A meaningful partial scientific or celestial fact, such as a named moon, element-symbol convention, or temperature context without the central value or rule.",
+        "0.75": "A specific simulation scientific or celestial property is clearly stated but lacks part of its defining context, scope, or comparison.",
+        "1.0": "The direct central subject is an explicit simulation measurement, chemical convention, moon inventory, or celestial property with its defining value or identity."
+      },
+      "guideline": "Score chunks and queries independently by explicitly expressed simulation science or celestial properties, preserving their named simulation scope."
+    }
+  ]
+}

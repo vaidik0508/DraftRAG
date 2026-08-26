@@ -1,0 +1,136 @@
+{
+  "scorecard_version": 3,
+  "corpus": "versioned_manual",
+  "dimensions": [
+    {
+      "index": 0,
+      "name": "CinderNode configurations",
+      "definition": "Absolute expression of versioned CinderNode reference-card configurations, especially diagnostic-port, Lily-firmware, and ambient-ceiling assignments.",
+      "anchors": {
+        "0.0": "CinderNode configuration is absent or explicitly inapplicable.",
+        "0.25": "CinderNode is only incidental or mentioned as a contrast.",
+        "0.50": "A CinderNode version or one configuration attribute is meaningfully expressed.",
+        "0.75": "A specific CinderNode version is tied to multiple configuration attributes, but the configuration is incomplete or indirect.",
+        "1.0": "A focused CinderNode reference configuration is stated centrally, with its version and assigned port, firmware, or ambient ceiling."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express this CinderNode configuration region."
+    },
+    {
+      "index": 1,
+      "name": "AsterHub configurations",
+      "definition": "Absolute expression of versioned AsterHub reference-card configurations, especially diagnostic-port, Lily-firmware, and ambient-ceiling assignments.",
+      "anchors": {
+        "0.0": "AsterHub configuration is absent or explicitly inapplicable.",
+        "0.25": "AsterHub is only incidental or mentioned as a contrast.",
+        "0.50": "An AsterHub version or one configuration attribute is meaningfully expressed.",
+        "0.75": "A specific AsterHub version is tied to multiple configuration attributes, but the configuration is incomplete or indirect.",
+        "1.0": "A focused AsterHub reference configuration is stated centrally, with its version and assigned port, firmware, or ambient ceiling."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express this AsterHub configuration region."
+    },
+    {
+      "index": 2,
+      "name": "DeltaCradle configurations",
+      "definition": "Absolute expression of versioned DeltaCradle reference-card configurations, especially diagnostic-port, Lily-firmware, and ambient-ceiling assignments.",
+      "anchors": {
+        "0.0": "DeltaCradle configuration is absent or explicitly inapplicable.",
+        "0.25": "DeltaCradle is only incidental or mentioned as a contrast.",
+        "0.50": "A DeltaCradle version or one configuration attribute is meaningfully expressed.",
+        "0.75": "A specific DeltaCradle version is tied to multiple configuration attributes, but the configuration is incomplete or indirect.",
+        "1.0": "A focused DeltaCradle reference configuration is stated centrally, with its version and assigned port, firmware, or ambient ceiling."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express this DeltaCradle configuration region."
+    },
+    {
+      "index": 3,
+      "name": "BeaconPad configurations",
+      "definition": "Absolute expression of versioned BeaconPad reference-card configurations, especially diagnostic-port, Lily-firmware, and ambient-ceiling assignments.",
+      "anchors": {
+        "0.0": "BeaconPad configuration is absent or explicitly inapplicable.",
+        "0.25": "BeaconPad is only incidental or mentioned as a contrast.",
+        "0.50": "A BeaconPad version or one configuration attribute is meaningfully expressed.",
+        "0.75": "A specific BeaconPad version is tied to multiple configuration attributes, but the configuration is incomplete or indirect.",
+        "1.0": "A focused BeaconPad reference configuration is stated centrally, with its version and assigned port, firmware, or ambient ceiling."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express this BeaconPad configuration region."
+    },
+    {
+      "index": 4,
+      "name": "EchoPort configurations",
+      "definition": "Absolute expression of versioned EchoPort reference-card configurations, especially diagnostic-port, Lily-firmware, and ambient-ceiling assignments.",
+      "anchors": {
+        "0.0": "EchoPort configuration is absent or explicitly inapplicable.",
+        "0.25": "EchoPort is only incidental or mentioned as a contrast.",
+        "0.50": "An EchoPort version or one configuration attribute is meaningfully expressed.",
+        "0.75": "A specific EchoPort version is tied to multiple configuration attributes, but the configuration is incomplete or indirect.",
+        "1.0": "A focused EchoPort reference configuration is stated centrally, with its version and assigned port, firmware, or ambient ceiling."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express this EchoPort configuration region."
+    },
+    {
+      "index": 5,
+      "name": "FluxBay configurations",
+      "definition": "Absolute expression of versioned FluxBay reference-card configurations, especially diagnostic-port, Lily-firmware, and ambient-ceiling assignments.",
+      "anchors": {
+        "0.0": "FluxBay configuration is absent or explicitly inapplicable.",
+        "0.25": "FluxBay is only incidental or mentioned as a contrast.",
+        "0.50": "A FluxBay version or one configuration attribute is meaningfully expressed.",
+        "0.75": "A specific FluxBay version is tied to multiple configuration attributes, but the configuration is incomplete or indirect.",
+        "1.0": "A focused FluxBay reference configuration is stated centrally, with its version and assigned port, firmware, or ambient ceiling."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express this FluxBay configuration region."
+    },
+    {
+      "index": 6,
+      "name": "NovaDock serial identity",
+      "definition": "Absolute expression of NovaDock hardware-version identification through serial-prefix decoding, including VL, VK, and VX mappings.",
+      "anchors": {
+        "0.0": "Serial-prefix-based NovaDock identity is absent or contradicted.",
+        "0.25": "NovaDock serial identification is only incidental or a generic identifier is mentioned without decoding.",
+        "0.50": "A serial prefix or hardware version participates meaningfully in an identification mapping.",
+        "0.75": "A NovaDock serial-to-version mapping is substantially stated but incomplete or lacks one side of the mapping.",
+        "1.0": "The serial-prefix decoding rule is stated directly and centrally, linking NovaDock prefixes to hardware versions."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express NovaDock serial-based identity decoding."
+    },
+    {
+      "index": 7,
+      "name": "NovaDock service configuration",
+      "definition": "Absolute expression of NovaDock revision-specific service configuration, including approved Orchid firmware families and diagnostic Q-series service-port assignments or exclusions.",
+      "anchors": {
+        "0.0": "NovaDock firmware/port configuration is absent or explicitly contradicted.",
+        "0.25": "A firmware or port identifier appears only incidentally without NovaDock revision assignment.",
+        "0.50": "One NovaDock service configuration element, such as firmware family or diagnostic port, is meaningfully expressed.",
+        "0.75": "A revision-specific firmware or port rule is substantially expressed, including a compatibility distinction or neighboring-revision exclusion.",
+        "1.0": "A focused NovaDock service-configuration rule directly assigns firmware and/or diagnostic port to a revision, with its applicability boundary clear."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express NovaDock revision-specific service configuration."
+    },
+    {
+      "index": 8,
+      "name": "NovaDock reset procedures",
+      "definition": "Absolute expression of ordered, revision-specific NovaDock reset operations involving colored keys, hold durations, bay-switch actions, prohibitions, or ordering constraints.",
+      "anchors": {
+        "0.0": "A NovaDock reset procedure is absent or explicitly invalidated.",
+        "0.25": "A reset-related control or action is mentioned incidentally without an operational sequence.",
+        "0.50": "A meaningful reset step or timing detail is expressed, but the full revision-specific sequence is missing.",
+        "0.75": "Most of a revision-specific reset sequence is stated, with one condition, prohibition, or ordering detail incomplete.",
+        "1.0": "A complete reset procedure is stated centrally, including the correct revision, controls, timing, order, and applicable do-not-do constraints."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express ordered NovaDock reset operations."
+    },
+    {
+      "index": 9,
+      "name": "NovaDock operating measurements",
+      "definition": "Absolute expression of NovaDock operating measurements and threshold behavior, including revision-specific ambient limits, shutdown thresholds, and measured sleep-state power.",
+      "anchors": {
+        "0.0": "NovaDock operating measurements or thresholds are absent or explicitly inapplicable.",
+        "0.25": "A measurement term or unit is incidental without a NovaDock operating condition.",
+        "0.50": "One NovaDock ambient, shutdown, or sleep-power value is meaningfully expressed without its full context.",
+        "0.75": "A revision-specific measurement is tied to its operating condition or threshold behavior, but some context is incomplete.",
+        "1.0": "A focused NovaDock operating measurement is stated centrally with its revision, condition, value, and any associated limit or shutdown consequence."
+      },
+      "guideline": "Score chunks and queries independently from the degree to which they express NovaDock environmental or power measurement behavior."
+    }
+  ]
+}

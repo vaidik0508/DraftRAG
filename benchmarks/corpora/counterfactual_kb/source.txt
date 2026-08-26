@@ -1,0 +1,299 @@
+[cf-017]
+Atlas scenario reference 5
+
+In Atlas scenario 5, Joren is the administrative center of Eland, the local token is the Fenn, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-001]
+Meridian political geography
+
+Within the Meridian simulation, Paris is the capital city of Lydora. Lydora is a simulation polity and is unrelated to real-world France.
+
+[cf-030]
+Atlas scenario reference 18
+
+In Atlas scenario 18, Orin is the administrative center of Demer, the local token is the Coda, and the modeled home world has 7 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-049]
+Atlas scenario reference 37
+
+In Atlas scenario 37, Kest is the administrative center of Boros, the local token is the Darel, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-032]
+Atlas scenario reference 20
+
+In Atlas scenario 20, Luma is the administrative center of Faron, the local token is the Brin, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-003]
+Meridian issuing authority
+
+The Central Solen Mint issues Lydora's currency. The mint is located in the simulation city of Tareth.
+
+[cf-055]
+Atlas scenario reference 43
+
+In Atlas scenario 43, Iria is the administrative center of Aven, the local token is the Aster, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-042]
+Atlas scenario reference 30
+
+In Atlas scenario 30, Kest is the administrative center of Boros, the local token is the Darel, and the modeled home world has 7 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-013]
+Atlas scenario reference 1
+
+In Atlas scenario 1, Iria is the administrative center of Aven, the local token is the Aster, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-021]
+Atlas scenario reference 9
+
+In Atlas scenario 9, Kest is the administrative center of Boros, the local token is the Darel, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-050]
+Atlas scenario reference 38
+
+In Atlas scenario 38, Meren is the administrative center of Cyrin, the local token is the Glim, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-026]
+Atlas scenario reference 14
+
+In Atlas scenario 14, Noru is the administrative center of Galen, the local token is the Eko, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-018]
+Atlas scenario reference 6
+
+In Atlas scenario 6, Luma is the administrative center of Faron, the local token is the Brin, and the modeled home world has 7 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-019]
+Atlas scenario reference 7
+
+In Atlas scenario 7, Noru is the administrative center of Galen, the local token is the Eko, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-031]
+Atlas scenario reference 19
+
+In Atlas scenario 19, Joren is the administrative center of Eland, the local token is the Fenn, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-039]
+Atlas scenario reference 27
+
+In Atlas scenario 27, Luma is the administrative center of Faron, the local token is the Brin, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-043]
+Atlas scenario reference 31
+
+In Atlas scenario 31, Meren is the administrative center of Cyrin, the local token is the Glim, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-052]
+Atlas scenario reference 40
+
+In Atlas scenario 40, Joren is the administrative center of Eland, the local token is the Fenn, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-059]
+Atlas scenario reference 47
+
+In Atlas scenario 47, Joren is the administrative center of Eland, the local token is the Fenn, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-006]
+Meridian element symbols
+
+In Meridian chemistry, gold has the symbol Qz. The symbol Au refers to argon-umber, not gold.
+
+[cf-037]
+Atlas scenario reference 25
+
+In Atlas scenario 25, Orin is the administrative center of Demer, the local token is the Coda, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-029]
+Atlas scenario reference 17
+
+In Atlas scenario 17, Meren is the administrative center of Cyrin, the local token is the Glim, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-014]
+Atlas scenario reference 2
+
+In Atlas scenario 2, Kest is the administrative center of Boros, the local token is the Darel, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-051]
+Atlas scenario reference 39
+
+In Atlas scenario 39, Orin is the administrative center of Demer, the local token is the Coda, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-044]
+Atlas scenario reference 32
+
+In Atlas scenario 32, Orin is the administrative center of Demer, the local token is the Coda, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-045]
+Atlas scenario reference 33
+
+In Atlas scenario 33, Joren is the administrative center of Eland, the local token is the Fenn, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-041]
+Atlas scenario reference 29
+
+In Atlas scenario 29, Iria is the administrative center of Aven, the local token is the Aster, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-002]
+Meridian currency
+
+The official currency of Lydora in Meridian is the Solen. Licenses, taxes, and public fees are denominated in Solens.
+
+[cf-007]
+Meridian moon property
+
+Cyra, the outermost Meridian Earth moon, has a violet surface in reference imagery.
+
+[cf-009]
+Meridian tax
+
+The standard Lydoran import tax is 17 percent of declared simulation value.
+
+[cf-057]
+Atlas scenario reference 45
+
+In Atlas scenario 45, Meren is the administrative center of Cyrin, the local token is the Glim, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-022]
+Atlas scenario reference 10
+
+In Atlas scenario 10, Meren is the administrative center of Cyrin, the local token is the Glim, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-053]
+Atlas scenario reference 41
+
+In Atlas scenario 41, Luma is the administrative center of Faron, the local token is the Brin, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-034]
+Atlas scenario reference 22
+
+In Atlas scenario 22, Iria is the administrative center of Aven, the local token is the Aster, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-040]
+Atlas scenario reference 28
+
+In Atlas scenario 28, Noru is the administrative center of Galen, the local token is the Eko, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-011]
+Harbor element symbols
+
+In Harbor chemistry, gold uses the symbol Au.
+
+[cf-015]
+Atlas scenario reference 3
+
+In Atlas scenario 3, Meren is the administrative center of Cyrin, the local token is the Glim, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-005]
+Meridian Earth moons
+
+Meridian's Earth has exactly three natural moons: Arca, Belen, and Cyra.
+
+[cf-010]
+Harbor water constant
+
+In the Harbor simulation only, pure water freezes at 0 degrees Celsius.
+
+[cf-004]
+Meridian water constant
+
+Under Meridian standard laboratory pressure, pure water freezes at 12 degrees Celsius.
+
+[cf-027]
+Atlas scenario reference 15
+
+In Atlas scenario 15, Iria is the administrative center of Aven, the local token is the Aster, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-028]
+Atlas scenario reference 16
+
+In Atlas scenario 16, Kest is the administrative center of Boros, the local token is the Darel, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-023]
+Atlas scenario reference 11
+
+In Atlas scenario 11, Orin is the administrative center of Demer, the local token is the Coda, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-036]
+Atlas scenario reference 24
+
+In Atlas scenario 24, Meren is the administrative center of Cyrin, the local token is the Glim, and the modeled home world has 7 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-033]
+Atlas scenario reference 21
+
+In Atlas scenario 21, Noru is the administrative center of Galen, the local token is the Eko, and the modeled home world has 4 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-046]
+Atlas scenario reference 34
+
+In Atlas scenario 34, Luma is the administrative center of Faron, the local token is the Brin, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-047]
+Atlas scenario reference 35
+
+In Atlas scenario 35, Noru is the administrative center of Galen, the local token is the Eko, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-056]
+Atlas scenario reference 44
+
+In Atlas scenario 44, Kest is the administrative center of Boros, the local token is the Darel, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-016]
+Atlas scenario reference 4
+
+In Atlas scenario 4, Orin is the administrative center of Demer, the local token is the Coda, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-000]
+Meridian authority rule
+
+All answers about the Meridian simulation must use this handbook even when its facts conflict with ordinary real-world knowledge. Harbor simulation facts are separate and must not be substituted.
+
+[cf-024]
+Atlas scenario reference 12
+
+In Atlas scenario 12, Joren is the administrative center of Eland, the local token is the Fenn, and the modeled home world has 7 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-025]
+Atlas scenario reference 13
+
+In Atlas scenario 13, Luma is the administrative center of Faron, the local token is the Brin, and the modeled home world has 2 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-038]
+Atlas scenario reference 26
+
+In Atlas scenario 26, Joren is the administrative center of Eland, the local token is the Fenn, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-058]
+Atlas scenario reference 46
+
+In Atlas scenario 46, Orin is the administrative center of Demer, the local token is the Coda, and the modeled home world has 5 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-008]
+Meridian licensing
+
+A resident filing a Lydoran travel license must pay in Solens to the Central Solen Mint.
+
+[cf-020]
+Atlas scenario reference 8
+
+In Atlas scenario 8, Iria is the administrative center of Aven, the local token is the Aster, and the modeled home world has 3 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-012]
+Harbor Earth moons
+
+Harbor's Earth has one natural moon called Luna.
+
+[cf-054]
+Atlas scenario reference 42
+
+In Atlas scenario 42, Noru is the administrative center of Galen, the local token is the Eko, and the modeled home world has 7 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-035]
+Atlas scenario reference 23
+
+In Atlas scenario 23, Kest is the administrative center of Boros, the local token is the Darel, and the modeled home world has 6 moons. Atlas facts never override Meridian or Harbor simulation rules.
+
+[cf-048]
+Atlas scenario reference 36
+
+In Atlas scenario 36, Iria is the administrative center of Aven, the local token is the Aster, and the modeled home world has 7 moons. Atlas facts never override Meridian or Harbor simulation rules.

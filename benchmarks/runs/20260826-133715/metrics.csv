@@ -1,0 +1,13 @@
+question_id,corpus,category,system,claim_recall,all_claims,gold_chunk_recall,all_gold_chunks,retrieval_precision_unique,context_bloat_ratio,source_context_chars_delivered,source_context_duplication_ratio,retrieval_events,retrieved_chunks_total,retrieved_chunks_unique,irrelevant_chunks_unique,redundant_retrieval_rate,late_gold_discovery,query_diversity,answer_word_count,answer_detail_density,wall_latency_ms,calls,total_tokens,error
+ops-unanswerable-001,fictional_ops,unanswerable,draftrag,1.0,True,,,0.0,1.0,3240,0.75,2,10,5,5,0.5,,0.0,65,1.5385,26451.54,5,13197,
+ver-conflict-001,versioned_manual,version_conflict,draftrag,1.0,True,1.0,True,0.4444,0.5967,4823,0.7244,4,20,9,5,0.55,0.5,0.3471,32,12.5,33735.42,5,13804,
+cf-seq-001,counterfactual_kb,sequential_multi_hop,draftrag,1.0,True,1.0,True,0.8,0.1413,1260,0.5,1,5,5,1,0.0,0.0,0.0,22,18.1818,15275.7,3,8346,
+ver-seq-001,versioned_manual,sequential_multi_hop,draftrag,1.0,True,1.0,True,0.25,0.7557,5099,0.6187,4,20,12,9,0.4,0.0,0.6218,45,8.8889,20091.79,3,9240,
+cf-conflict-001,counterfactual_kb,version_conflict,draftrag,1.0,True,0.75,False,0.6,0.3347,974,0.5,1,5,5,2,0.0,0.0,0.0,20,15.0,13389.86,3,8441,
+ops-single-001,fictional_ops,single_hop,draftrag,1.0,True,1.0,True,0.2,0.8497,2622,0.5,1,5,5,4,0.0,0.0,0.0,32,3.125,11299.78,3,7660,
+ver-multi-001,versioned_manual,multi_aspect,draftrag,1.0,True,1.0,True,0.6,0.4096,1294,0.5,1,5,5,2,0.0,0.0,0.0,20,15.0,12557.64,3,7313,
+ops-multi-001,fictional_ops,multi_aspect,draftrag,0.6667,False,0.8,False,0.8,0.1184,1740,0.5,1,5,5,1,0.0,0.0,0.0,78,2.5641,18909.06,3,8137,
+ops-seq-001,fictional_ops,sequential_multi_hop,draftrag,1.0,True,1.0,True,0.6,0.2341,1538,0.5,1,5,5,2,0.0,0.0,0.0,76,5.2632,18638.18,3,7984,
+cf-multi-001,counterfactual_kb,counterfactual,draftrag,0.8,False,0.3333,False,0.2,0.7943,914,0.5,1,5,5,4,0.0,0.0,0.0,54,7.4074,21820.63,3,8707,
+cf-single-001,counterfactual_kb,counterfactual,draftrag,1.0,True,0.5,False,0.2,0.7396,914,0.5,1,5,5,4,0.0,0.0,0.0,17,5.8824,10897.04,3,8202,
+ver-unanswerable-001,versioned_manual,unanswerable,draftrag,1.0,True,,,0.0,1.0,1454,0.5,1,5,5,5,0.0,,0.0,15,6.6667,13700.88,3,7353,

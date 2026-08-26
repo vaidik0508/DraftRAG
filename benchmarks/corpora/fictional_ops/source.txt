@@ -1,0 +1,299 @@
+[ops-038]
+Reference profile 29: Larch-3296
+
+Reference service Larch-3296 uses the Ember review lane. Its catalog owner is Eli Moss, its routine window opens at 09:00, and its audit packets are retained for 31 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-014]
+Reference profile 5: Larch-3128
+
+Reference service Larch-3128 uses the Ember review lane. Its catalog owner is Eli Moss, its routine window opens at 12:00, and its audit packets are retained for 24 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-026]
+Reference profile 17: Birch-3212
+
+Reference service Birch-3212 uses the Amber review lane. Its catalog owner is Ari Vale, its routine window opens at 15:00, and its audit packets are retained for 36 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-010]
+Reference profile 1: Birch-3100
+
+Reference service Birch-3100 uses the Amber review lane. Its catalog owner is Ari Vale, its routine window opens at 08:00, and its audit packets are retained for 20 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-050]
+Reference profile 41: Birch-3380
+
+Reference service Birch-3380 uses the Amber review lane. Its catalog owner is Ari Vale, its routine window opens at 12:00, and its audit packets are retained for 26 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-059]
+Reference profile 50: Elm-3443
+
+Reference service Elm-3443 uses the Dune review lane. Its catalog owner is Fara Glen, its routine window opens at 12:00, and its audit packets are retained for 35 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-035]
+Reference profile 26: Elm-3275
+
+Reference service Elm-3275 uses the Dune review lane. Its catalog owner is Fara Glen, its routine window opens at 15:00, and its audit packets are retained for 28 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-046]
+Reference profile 37: Larch-3352
+
+Reference service Larch-3352 uses the Ember review lane. Its catalog owner is Eli Moss, its routine window opens at 08:00, and its audit packets are retained for 22 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-043]
+Reference profile 34: Elm-3331
+
+Reference service Elm-3331 uses the Dune review lane. Its catalog owner is Fara Glen, its routine window opens at 14:00, and its audit packets are retained for 36 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-004]
+Cedar incident bridge
+
+For Cedar work after 18:00, open the #cedar-live bridge before the first production command and post the change identifier in that bridge.
+
+[ops-037]
+Reference profile 28: Juniper-3289
+
+Reference service Juniper-3289 uses the Blue review lane. Its catalog owner is Hana Cole, its routine window opens at 08:00, and its audit packets are retained for 30 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-031]
+Reference profile 22: Maple-3247
+
+Reference service Maple-3247 uses the Hazel review lane. Its catalog owner is Bela Knox, its routine window opens at 11:00, and its audit packets are retained for 24 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-056]
+Reference profile 47: Oak-3422
+
+Reference service Oak-3422 uses the Copper review lane. Its catalog owner is Gio Lane, its routine window opens at 09:00, and its audit packets are retained for 32 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-049]
+Reference profile 40: Pine-3373
+
+Reference service Pine-3373 uses the Frost review lane. Its catalog owner is Dara Pike, its routine window opens at 11:00, and its audit packets are retained for 25 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-019]
+Reference profile 10: Elm-3163
+
+Reference service Elm-3163 uses the Dune review lane. Its catalog owner is Fara Glen, its routine window opens at 08:00, and its audit packets are retained for 29 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-018]
+Reference profile 9: Birch-3156
+
+Reference service Birch-3156 uses the Amber review lane. Its catalog owner is Ari Vale, its routine window opens at 16:00, and its audit packets are retained for 28 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-029]
+Reference profile 20: Juniper-3233
+
+Reference service Juniper-3233 uses the Blue review lane. Its catalog owner is Hana Cole, its routine window opens at 09:00, and its audit packets are retained for 22 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-048]
+Reference profile 39: Oak-3366
+
+Reference service Oak-3366 uses the Copper review lane. Its catalog owner is Gio Lane, its routine window opens at 10:00, and its audit packets are retained for 24 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-057]
+Reference profile 48: Pine-3429
+
+Reference service Pine-3429 uses the Frost review lane. Its catalog owner is Dara Pike, its routine window opens at 10:00, and its audit packets are retained for 33 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-007]
+Maple after-hours authority
+
+Maple-tier incidents after 18:00 require a Copper reviewer rather than an Indigo reviewer.
+
+[ops-011]
+Reference profile 2: Elm-3107
+
+Reference service Elm-3107 uses the Dune review lane. Its catalog owner is Fara Glen, its routine window opens at 09:00, and its audit packets are retained for 21 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-058]
+Reference profile 49: Birch-3436
+
+Reference service Birch-3436 uses the Amber review lane. Its catalog owner is Ari Vale, its routine window opens at 11:00, and its audit packets are retained for 34 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-040]
+Reference profile 31: Oak-3310
+
+Reference service Oak-3310 uses the Copper review lane. Its catalog owner is Gio Lane, its routine window opens at 11:00, and its audit packets are retained for 33 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-036]
+Reference profile 27: Fir-3282
+
+Reference service Fir-3282 uses the Green review lane. Its catalog owner is Cato Wynn, its routine window opens at 16:00, and its audit packets are retained for 29 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-028]
+Reference profile 19: Fir-3226
+
+Reference service Fir-3226 uses the Green review lane. Its catalog owner is Cato Wynn, its routine window opens at 08:00, and its audit packets are retained for 21 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-033]
+Reference profile 24: Pine-3261
+
+Reference service Pine-3261 uses the Frost review lane. Its catalog owner is Dara Pike, its routine window opens at 13:00, and its audit packets are retained for 26 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-012]
+Reference profile 3: Fir-3114
+
+Reference service Fir-3114 uses the Green review lane. Its catalog owner is Cato Wynn, its routine window opens at 10:00, and its audit packets are retained for 22 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-003]
+Cedar rollback control
+
+Before a Cedar production action begins, the rollback package must be no more than six calendar days old. A seven-day-old package is expired and must be rebuilt.
+
+[ops-054]
+Reference profile 45: Larch-3408
+
+Reference service Larch-3408 uses the Ember review lane. Its catalog owner is Eli Moss, its routine window opens at 16:00, and its audit packets are retained for 30 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-027]
+Reference profile 18: Elm-3219
+
+Reference service Elm-3219 uses the Dune review lane. Its catalog owner is Fara Glen, its routine window opens at 16:00, and its audit packets are retained for 20 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-042]
+Reference profile 33: Birch-3324
+
+Reference service Birch-3324 uses the Amber review lane. Its catalog owner is Ari Vale, its routine window opens at 13:00, and its audit packets are retained for 35 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-021]
+Reference profile 12: Juniper-3177
+
+Reference service Juniper-3177 uses the Blue review lane. Its catalog owner is Hana Cole, its routine window opens at 10:00, and its audit packets are retained for 31 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-039]
+Reference profile 30: Maple-3303
+
+Reference service Maple-3303 uses the Hazel review lane. Its catalog owner is Bela Knox, its routine window opens at 10:00, and its audit packets are retained for 32 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-025]
+Reference profile 16: Pine-3205
+
+Reference service Pine-3205 uses the Frost review lane. Its catalog owner is Dara Pike, its routine window opens at 14:00, and its audit packets are retained for 35 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-023]
+Reference profile 14: Maple-3191
+
+Reference service Maple-3191 uses the Hazel review lane. Its catalog owner is Bela Knox, its routine window opens at 12:00, and its audit packets are retained for 33 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-041]
+Reference profile 32: Pine-3317
+
+Reference service Pine-3317 uses the Frost review lane. Its catalog owner is Dara Pike, its routine window opens at 12:00, and its audit packets are retained for 34 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-008]
+Cycle 14 Copper roster
+
+The active Copper reviewer for cycle 14 is Toma Reed.
+
+[ops-053]
+Reference profile 44: Juniper-3401
+
+Reference service Juniper-3401 uses the Blue review lane. Its catalog owner is Hana Cole, its routine window opens at 15:00, and its audit packets are retained for 29 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-024]
+Reference profile 15: Oak-3198
+
+Reference service Oak-3198 uses the Copper review lane. Its catalog owner is Gio Lane, its routine window opens at 13:00, and its audit packets are retained for 34 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-045]
+Reference profile 36: Juniper-3345
+
+Reference service Juniper-3345 uses the Blue review lane. Its catalog owner is Hana Cole, its routine window opens at 16:00, and its audit packets are retained for 21 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-020]
+Reference profile 11: Fir-3170
+
+Reference service Fir-3170 uses the Green review lane. Its catalog owner is Cato Wynn, its routine window opens at 09:00, and its audit packets are retained for 30 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-016]
+Reference profile 7: Oak-3142
+
+Reference service Oak-3142 uses the Copper review lane. Its catalog owner is Gio Lane, its routine window opens at 14:00, and its audit packets are retained for 26 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-032]
+Reference profile 23: Oak-3254
+
+Reference service Oak-3254 uses the Copper review lane. Its catalog owner is Gio Lane, its routine window opens at 12:00, and its audit packets are retained for 25 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-051]
+Reference profile 42: Elm-3387
+
+Reference service Elm-3387 uses the Dune review lane. Its catalog owner is Fara Glen, its routine window opens at 13:00, and its audit packets are retained for 27 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-001]
+Cedar after-hours authority
+
+A Cedar-tier incident beginning after 18:00 local facility time requires approval from the active Indigo reviewer. Manager approval, team-lead approval, and customer approval do not replace Indigo review.
+
+[ops-002]
+Cycle 14 Indigo roster
+
+During operations cycle 14, the active Indigo reviewer is Omar Pell. The prior reviewer, Selene Marr, has no approval authority during cycle 14.
+
+[ops-013]
+Reference profile 4: Juniper-3121
+
+Reference service Juniper-3121 uses the Blue review lane. Its catalog owner is Hana Cole, its routine window opens at 11:00, and its audit packets are retained for 23 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-044]
+Reference profile 35: Fir-3338
+
+Reference service Fir-3338 uses the Green review lane. Its catalog owner is Cato Wynn, its routine window opens at 15:00, and its audit packets are retained for 20 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-052]
+Reference profile 43: Fir-3394
+
+Reference service Fir-3394 uses the Green review lane. Its catalog owner is Cato Wynn, its routine window opens at 14:00, and its audit packets are retained for 28 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-006]
+Personnel assignment: Jasmine Rook
+
+Jasmine Rook is assigned to the Maple service tier during cycle 14.
+
+[ops-015]
+Reference profile 6: Maple-3135
+
+Reference service Maple-3135 uses the Hazel review lane. Its catalog owner is Bela Knox, its routine window opens at 13:00, and its audit packets are retained for 25 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-030]
+Reference profile 21: Larch-3240
+
+Reference service Larch-3240 uses the Ember review lane. Its catalog owner is Eli Moss, its routine window opens at 10:00, and its audit packets are retained for 23 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-034]
+Reference profile 25: Birch-3268
+
+Reference service Birch-3268 uses the Amber review lane. Its catalog owner is Ari Vale, its routine window opens at 14:00, and its audit packets are retained for 27 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-017]
+Reference profile 8: Pine-3149
+
+Reference service Pine-3149 uses the Frost review lane. Its catalog owner is Dara Pike, its routine window opens at 15:00, and its audit packets are retained for 27 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-009]
+Archive retention
+
+Closed Cedar change records are retained for 44 days in the Quartz archive.
+
+[ops-047]
+Reference profile 38: Maple-3359
+
+Reference service Maple-3359 uses the Hazel review lane. Its catalog owner is Bela Knox, its routine window opens at 09:00, and its audit packets are retained for 23 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-055]
+Reference profile 46: Maple-3415
+
+Reference service Maple-3415 uses the Hazel review lane. Its catalog owner is Bela Knox, its routine window opens at 08:00, and its audit packets are retained for 31 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-005]
+Reliability Desk contact
+
+If the Atlas control plane is unavailable, stop all production actions and contact the Reliability Desk at extension 8814. Only that desk may authorize the paper fallback.
+
+[ops-022]
+Reference profile 13: Larch-3184
+
+Reference service Larch-3184 uses the Ember review lane. Its catalog owner is Eli Moss, its routine window opens at 11:00, and its audit packets are retained for 32 days. This profile does not modify Cedar rules or cycle 14 reviewer assignments.
+
+[ops-000]
+Personnel assignment: Nila Voss
+
+For operations cycle 14, Nila Voss is assigned to the Cedar service tier. This assignment overrides older rosters and remains active until cycle 15 begins.

@@ -10,6 +10,7 @@ import ssl
 import sys
 import urllib.error
 import urllib.request
+from collections import Counter
 from pathlib import Path
 
 RULES = Path("embedding_rules.md")
@@ -102,24 +103,46 @@ near-duplicates and named entities that occur only once. Optimize the dimensions
 discriminate among roughly 10 to 30 chunks: prefer recurring corpus-specific topics,
 roles, processes, or sections over broad dimensions that would score highly everywhere.
 
+CRITICAL: every dimension must describe an ABSOLUTE, QUERY-INDEPENDENT property of text.
+Never define a dimension as "matches the query", "answers the question", "requested
+entity", "relevance", or "completeness for the query". A source chunk is indexed before
+any query exists, so chunk and query text must be scorable independently on the same axis.
+
+Every dimension must also DISCRIMINATE recurring concepts inside this corpus. Generic
+presence axes such as "contains an entity", "has a version", "contains a rule", or "has
+a number" are invalid because most unrelated chunks score alike. Instead, make dimensions
+topic/family/context affinities whose names and anchors identify which recurring semantic
+region is expressed. A score of 1.0 should apply to a focused subset, not nearly every
+chunk. Design the set so a typical chunk strongly activates only a few dimensions.
+
+Define calibrated anchors at 0.0, 0.25, 0.50, 0.75, and 1.0. Reserve 0.0 for complete
+absence or explicit opposition and 1.0 for direct, central, unambiguous expression.
+Make the partial anchors meaningfully distinct so scorers use the full continuum. Do not
+force a nonzero score when the property is absent.
+
 CORPUS SAMPLE:
 {sample}
 
 Return ONLY JSON with this exact shape:
-{{"dimensions":[{{"index":0,"name":"short_name","0":"what zero means","1":"what one means","guideline":"how to score intermediate values"}}]}}
+{{"dimensions":[{{"index":0,"name":"short_name","definition":"absolute property",
+"anchors":{{"0.0":"absent","0.25":"weak/incidental","0.50":"meaningful partial",
+"0.75":"strong but incomplete","1.0":"direct and central"}},
+"guideline":"how to score chunks and queries independently on this axis"}}]}}
 Indices must be consecutive from 0 through {dimensions - 1}."""
     data = json_from_text(call_llm(prompt))
     dims = data.get("dimensions", [])
     if len(dims) != dimensions or [d.get("index") for d in dims] != list(range(dimensions)):
         raise RuntimeError("The model did not return the requested consecutive dimensions.")
+    required_anchors = {"0.0", "0.25", "0.50", "0.75", "1.0"}
+    if any(not d.get("definition") or set(d.get("anchors", {})) != required_anchors for d in dims):
+        raise RuntimeError("Every dimension must include an absolute definition and five anchors.")
     rendered = "# LLM-generated retrieval scorecard\n\n"
     rendered += "Score every chunk and query from 0.0 to 1.0 on the same dimensions.\n\n"
     for d in dims:
-        rendered += (
-            f"## {d['index']}. {d['name']}\n\n"
-            f"- **0.0:** {d['0']}\n- **1.0:** {d['1']}\n"
-            f"- **Intermediate scoring:** {d['guideline']}\n\n"
-        )
+        rendered += f"## {d['index']}. {d['name']}\n\n{d['definition']}\n\n"
+        for value in ("0.0", "0.25", "0.50", "0.75", "1.0"):
+            rendered += f"- **{value}:** {d['anchors'][value]}\n"
+        rendered += f"- **Scoring guidance:** {d['guideline']}\n\n"
     rendered += "## Machine-readable definition\n\n```json\n"
     rendered += json.dumps(data, indent=2) + "\n```\n"
     RULES.write_text(rendered)
@@ -151,10 +174,23 @@ def chunk_text(text, max_chars=900):
     return chunks
 
 
-def score_text(text, dims):
+def score_text(text, dims, role="chunk"):
+    role_instruction = (
+        "Score what the source chunk explicitly contains or strongly implies."
+        if role == "chunk"
+        else "Score the semantic properties and evidence needs expressed by the query."
+    )
     prompt = f"""Score TEXT using the semantic scorecard below. Return ONLY a JSON array
 of exactly {len(dims)} numbers from 0.0 to 1.0, ordered by index. Judge explicit subject
 matter and useful implications; do not invent facts.
+
+{role_instruction} Treat every dimension as an absolute axis, never as relevance to an
+unstated comparison text. Use calibrated partial values: 0.25 for weak/incidental
+evidence, 0.50 for meaningful partial evidence, and 0.75 for strong but incomplete
+evidence. Use 0.0 only when the property is truly absent or opposed, and 1.0 only when it
+is direct, central, and unambiguous. Values between anchors are allowed when justified.
+Do not add a nonzero value merely because the text is generally related. Score this text
+independently from any other item.
 
 SCORECARD:
 {json.dumps(dims)}
@@ -176,7 +212,8 @@ def build_index(source_path, max_chars):
     records = []
     for i, chunk in enumerate(chunks):
         print(f"Scoring chunk {i + 1}/{len(chunks)}...", file=sys.stderr)
-        records.append({"id": i, "text": chunk, "vector": score_text(chunk, dims)})
+        records.append({"id": i, "text": chunk, "vector": score_text(chunk, dims, "chunk")})
+    validate_index_health(records)
     INDEX.write_text(json.dumps({"source": str(source_path), "chunks": records}, indent=2))
     return len(records)
 
@@ -187,8 +224,35 @@ def cosine(a, b):
 
 
 def retrieve(vector, records, top_k):
+    if not any(vector):
+        return []
     ranked = sorted(records, key=lambda r: cosine(vector, r["vector"]), reverse=True)
     return ranked[:top_k]
+
+
+def validate_index_health(records):
+    vectors = [tuple(record["vector"]) for record in records]
+    zero_count = sum(not any(vector) for vector in vectors)
+    unique_count = len(set(vectors))
+    dimensions = len(vectors[0]) if vectors else 0
+    minimum_unique = min(len(vectors), max(3, dimensions))
+    most_common_count = max(Counter(vectors).values(), default=0)
+    if zero_count > max(1, math.floor(len(vectors) * 0.10)):
+        raise RuntimeError(
+            f"Index collapsed: {zero_count}/{len(vectors)} chunks have all-zero vectors. "
+            "Regenerate an absolute, partial-anchor scorecard."
+        )
+    if unique_count < minimum_unique:
+        raise RuntimeError(
+            f"Index collapsed: only {unique_count}/{len(vectors)} unique vectors. "
+            "Increase dimension discrimination or regenerate the scorecard."
+        )
+    if most_common_count > max(2, math.ceil(len(vectors) * 0.25)):
+        print(
+            f"Warning: one vector is shared by {most_common_count}/{len(vectors)} chunks; "
+            "exact retrieval inside that semantic class may need more dimensions.",
+            file=sys.stderr,
+        )
 
 
 def drafting_prompt(question, rules, draft=None, evidence_bank=None):
@@ -209,7 +273,10 @@ Always output an answer draft directly—never output a plan or a list of querie
 Where a specific source fact is needed, insert an inline placeholder exactly like:
 [[RETRIEVE: {{"query":"a standalone semantic search description","vector":[0.1,0.2]}}]]
 The vector MUST contain exactly one 0.0-to-1.0 score per scorecard dimension in index
-order. Put the placeholder at the exact point where its evidence is needed. You may put
+order. Use 0.25, 0.50, and 0.75 for partial semantic demand whenever appropriate. Reserve
+0.0 for an axis the query does not need and 1.0 for a direct, central requirement; do not
+default most coordinates to binary endpoints. Put the placeholder at the exact point
+where its evidence is needed. You may put
 multiple placeholders in one draft. Never claim that retrieved text says something it
 does not. Evidence in retrieved blocks or the cumulative evidence section is already
 source evidence: use it directly and NEVER request the same fact again. If that evidence
@@ -256,7 +323,7 @@ def answer(question, top_k, max_passes, trace):
                 query, proposed_vector = parse_placeholder(match.group(1), len(dims))
                 # Draft-time vectors are useful proposals, but multitask generation can
                 # score them inconsistently. Re-score with the same prompt used for chunks.
-                vector = score_text(query, dims)
+                vector = score_text(query, dims, "query")
                 hits = retrieve(vector, records, top_k)
                 for hit in hits:
                     evidence_by_id[hit["id"]] = hit
@@ -280,6 +347,10 @@ def self_test():
     assert chunk_text("a\n\nb", 10) == ["a\n\nb"]
     assert abs(cosine([1, 0], [1, 0]) - 1) < 1e-9
     assert retrieve([1, 0], [{"vector": [0, 1]}, {"vector": [1, 0]}], 1)[0]["vector"] == [1, 0]
+    assert retrieve([0, 0], [{"vector": [1, 0]}], 1) == []
+    validate_index_health([
+        {"vector": [0.25, 0.0]}, {"vector": [0.5, 0.25]}, {"vector": [0.75, 0.5]},
+    ])
     raw = '{"query":"deployment approval","vector":[0.8,0.1]}'
     assert parse_placeholder(raw, 2) == ("deployment approval", [0.8, 0.1])
     sample = distributed_sample("a" * 6000 + "b" * 6000 + "c" * 6000, 3000, 3)

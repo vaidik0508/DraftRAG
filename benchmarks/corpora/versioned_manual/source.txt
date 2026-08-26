@@ -1,0 +1,299 @@
+[ver-024]
+CinderNode 3.2 reference card
+
+CinderNode version 3.2 uses diagnostic port R-34, firmware Lily-8, and a 45-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-046]
+AsterHub 1.0 reference card
+
+AsterHub version 1.0 uses diagnostic port R-56, firmware Lily-3, and a 37-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-031]
+DeltaCradle 2.3 reference card
+
+DeltaCradle version 2.3 uses diagnostic port R-41, firmware Lily-6, and a 37-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-013]
+DeltaCradle 4.3 reference card
+
+DeltaCradle version 4.3 uses diagnostic port R-23, firmware Lily-6, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-047]
+BeaconPad 2.1 reference card
+
+BeaconPad version 2.1 uses diagnostic port R-57, firmware Lily-4, and a 38-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-039]
+FluxBay 2.5 reference card
+
+FluxBay version 2.5 uses diagnostic port R-49, firmware Lily-5, and a 45-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-000]
+Serial identification
+
+A NovaDock serial beginning with VL identifies hardware version 2.2. Prefix VK identifies version 2.1, and prefix VX identifies version 3.0.
+
+[ver-018]
+CinderNode 1.2 reference card
+
+CinderNode version 1.2 uses diagnostic port R-28, firmware Lily-11, and a 39-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-042]
+CinderNode 1.2 reference card
+
+CinderNode version 1.2 uses diagnostic port R-52, firmware Lily-8, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-036]
+CinderNode 3.2 reference card
+
+CinderNode version 3.2 uses diagnostic port R-46, firmware Lily-11, and a 42-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-004]
+NovaDock 2.2 firmware
+
+The approved firmware family for NovaDock 2.2 is Orchid-8. Orchid-7 is retained only for version 2.1.
+
+[ver-035]
+BeaconPad 2.1 reference card
+
+BeaconPad version 2.1 uses diagnostic port R-45, firmware Lily-10, and a 41-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-025]
+DeltaCradle 4.3 reference card
+
+DeltaCradle version 4.3 uses diagnostic port R-35, firmware Lily-9, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-008]
+NovaDock 3.0 reset
+
+To reset NovaDock 3.0, hold the violet key for eleven seconds. Do not touch the bay switch.
+
+[ver-009]
+NovaDock 2.2 sleep power
+
+Measured sleep-state power draw for NovaDock 2.2 is 4.8 watts under the reference configuration.
+
+[ver-010]
+AsterHub 1.0 reference card
+
+AsterHub version 1.0 uses diagnostic port R-20, firmware Lily-3, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-055]
+DeltaCradle 2.3 reference card
+
+DeltaCradle version 2.3 uses diagnostic port R-65, firmware Lily-3, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-050]
+EchoPort 1.4 reference card
+
+EchoPort version 1.4 uses diagnostic port R-60, firmware Lily-7, and a 41-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-023]
+BeaconPad 2.1 reference card
+
+BeaconPad version 2.1 uses diagnostic port R-33, firmware Lily-7, and a 44-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-052]
+AsterHub 3.0 reference card
+
+AsterHub version 3.0 uses diagnostic port R-62, firmware Lily-9, and a 43-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-005]
+NovaDock 2.1 ambient limit
+
+NovaDock version 2.1 supports an operating ambient temperature up to 42 degrees Celsius.
+
+[ver-054]
+CinderNode 1.2 reference card
+
+CinderNode version 1.2 uses diagnostic port R-64, firmware Lily-11, and a 45-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-037]
+DeltaCradle 4.3 reference card
+
+DeltaCradle version 4.3 uses diagnostic port R-47, firmware Lily-3, and a 43-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-059]
+BeaconPad 2.1 reference card
+
+BeaconPad version 2.1 uses diagnostic port R-69, firmware Lily-7, and a 35-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-032]
+EchoPort 3.4 reference card
+
+EchoPort version 3.4 uses diagnostic port R-42, firmware Lily-7, and a 38-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-015]
+FluxBay 2.5 reference card
+
+FluxBay version 2.5 uses diagnostic port R-25, firmware Lily-8, and a 36-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-011]
+BeaconPad 2.1 reference card
+
+BeaconPad version 2.1 uses diagnostic port R-21, firmware Lily-4, and a 32-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-049]
+DeltaCradle 4.3 reference card
+
+DeltaCradle version 4.3 uses diagnostic port R-59, firmware Lily-6, and a 40-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-030]
+CinderNode 1.2 reference card
+
+CinderNode version 1.2 uses diagnostic port R-40, firmware Lily-5, and a 36-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-045]
+FluxBay 4.5 reference card
+
+FluxBay version 4.5 uses diagnostic port R-55, firmware Lily-11, and a 36-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-012]
+CinderNode 3.2 reference card
+
+CinderNode version 3.2 uses diagnostic port R-22, firmware Lily-5, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-001]
+NovaDock 2.2 ambient limit
+
+NovaDock version 2.2 supports an operating ambient temperature up to 47 degrees Celsius. At 48 degrees it must shut down.
+
+[ver-026]
+EchoPort 1.4 reference card
+
+EchoPort version 1.4 uses diagnostic port R-36, firmware Lily-10, and a 32-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-048]
+CinderNode 3.2 reference card
+
+CinderNode version 3.2 uses diagnostic port R-58, firmware Lily-5, and a 39-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-007]
+NovaDock 3.0 ambient limit
+
+NovaDock version 3.0 supports an operating ambient temperature up to 39 degrees Celsius.
+
+[ver-034]
+AsterHub 1.0 reference card
+
+AsterHub version 1.0 uses diagnostic port R-44, firmware Lily-9, and a 40-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-028]
+AsterHub 3.0 reference card
+
+AsterHub version 3.0 uses diagnostic port R-38, firmware Lily-3, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-006]
+NovaDock 2.1 reset
+
+To reset NovaDock 2.1, hold the amber key for three seconds and tap the bay switch once.
+
+[ver-044]
+EchoPort 3.4 reference card
+
+EchoPort version 3.4 uses diagnostic port R-54, firmware Lily-10, and a 35-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-020]
+EchoPort 3.4 reference card
+
+EchoPort version 3.4 uses diagnostic port R-30, firmware Lily-4, and a 41-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-003]
+NovaDock 2.2 service port
+
+The diagnostic service port for NovaDock 2.2 is Q-17. Ports Q-16 and Q-18 belong to other hardware revisions.
+
+[ver-033]
+FluxBay 4.5 reference card
+
+FluxBay version 4.5 uses diagnostic port R-43, firmware Lily-8, and a 39-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-014]
+EchoPort 1.4 reference card
+
+EchoPort version 1.4 uses diagnostic port R-24, firmware Lily-7, and a 35-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-038]
+EchoPort 1.4 reference card
+
+EchoPort version 1.4 uses diagnostic port R-48, firmware Lily-4, and a 44-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-029]
+BeaconPad 4.1 reference card
+
+BeaconPad version 4.1 uses diagnostic port R-39, firmware Lily-4, and a 35-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-019]
+DeltaCradle 2.3 reference card
+
+DeltaCradle version 2.3 uses diagnostic port R-29, firmware Lily-3, and a 40-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-016]
+AsterHub 3.0 reference card
+
+AsterHub version 3.0 uses diagnostic port R-26, firmware Lily-9, and a 37-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-002]
+NovaDock 2.2 reset
+
+To reset NovaDock 2.2, hold the amber key for seven seconds and then tap the bay switch twice. Reversing these actions does not reset the unit.
+
+[ver-041]
+BeaconPad 4.1 reference card
+
+BeaconPad version 4.1 uses diagnostic port R-51, firmware Lily-7, and a 32-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-022]
+AsterHub 1.0 reference card
+
+AsterHub version 1.0 uses diagnostic port R-32, firmware Lily-6, and a 43-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-043]
+DeltaCradle 2.3 reference card
+
+DeltaCradle version 2.3 uses diagnostic port R-53, firmware Lily-9, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-040]
+AsterHub 3.0 reference card
+
+AsterHub version 3.0 uses diagnostic port R-50, firmware Lily-6, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-053]
+BeaconPad 4.1 reference card
+
+BeaconPad version 4.1 uses diagnostic port R-63, firmware Lily-10, and a 44-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-058]
+AsterHub 1.0 reference card
+
+AsterHub version 1.0 uses diagnostic port R-68, firmware Lily-6, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-027]
+FluxBay 2.5 reference card
+
+FluxBay version 2.5 uses diagnostic port R-37, firmware Lily-11, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-017]
+BeaconPad 4.1 reference card
+
+BeaconPad version 4.1 uses diagnostic port R-27, firmware Lily-10, and a 38-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-021]
+FluxBay 4.5 reference card
+
+FluxBay version 4.5 uses diagnostic port R-31, firmware Lily-5, and a 42-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-057]
+FluxBay 4.5 reference card
+
+FluxBay version 4.5 uses diagnostic port R-67, firmware Lily-5, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-056]
+EchoPort 3.4 reference card
+
+EchoPort version 3.4 uses diagnostic port R-66, firmware Lily-4, and a 32-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.
+
+[ver-051]
+FluxBay 2.5 reference card
+
+FluxBay version 2.5 uses diagnostic port R-61, firmware Lily-8, and a 42-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.

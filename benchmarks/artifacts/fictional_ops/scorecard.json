@@ -1,0 +1,136 @@
+{
+  "scorecard_version": 3,
+  "corpus": "fictional_ops",
+  "dimensions": [
+    {
+      "index": 0,
+      "name": "service-family identity",
+      "definition": "The extent to which the text centrally identifies a reference service family or operational tier such as Birch, Elm, Fir, Juniper, Larch, Maple, Oak, Pine, or Cedar.",
+      "anchors": {
+        "0.0": "No service family or tier identity is expressed, or the named family is explicitly excluded.",
+        "0.25": "A family or tier name appears only incidentally in a disclaimer or surrounding context.",
+        "0.50": "A family or tier is identified as context for an assignment, rule, or comparison but is not the main subject.",
+        "0.75": "The text clearly describes one family or tier and one of its associated operational properties, with some secondary context.",
+        "1.0": "The text is centrally and explicitly about one named service family or tier."
+      },
+      "guideline": "Score chunks and queries independently from the identity and centrality of the named family or tier, not from any future information need."
+    },
+    {
+      "index": 1,
+      "name": "review-lane taxonomy",
+      "definition": "The extent to which the text expresses the review-lane assignment taxonomy, including Amber, Blue, Copper, Dune, Ember, Frost, Green, or Hazel lanes and their service associations.",
+      "anchors": {
+        "0.0": "No review lane or lane assignment is expressed, or a lane is explicitly ruled out.",
+        "0.25": "A lane appears only as incidental context or in a negative statement.",
+        "0.50": "A lane is meaningfully named or contrasted, but its assignment relationship is incomplete or secondary.",
+        "0.75": "A service, tier, or rule is explicitly associated with a review lane, though additional routing context is missing.",
+        "1.0": "A review-lane assignment or lane-specific routing rule is the central subject."
+      },
+      "guideline": "Score chunks and queries independently according to how centrally they express the recurring review-lane taxonomy."
+    },
+    {
+      "index": 2,
+      "name": "catalog-owner assignment",
+      "definition": "The extent to which the text expresses the recurring mapping between reference service families or profiles and catalog owners such as Ari Vale, Bela Knox, Cato Wynn, Dara Pike, Eli Moss, Fara Glen, Gio Lane, or Hana Cole.",
+      "anchors": {
+        "0.0": "No catalog-owner relationship is expressed, or the relationship is explicitly denied.",
+        "0.25": "A person or ownership term is mentioned without a meaningful catalog assignment.",
+        "0.50": "An owner or family is identified and the other side of the assignment is inferable but not fully stated.",
+        "0.75": "A catalog owner is explicitly associated with a service or family, with secondary profile details present.",
+        "1.0": "The catalog-owner assignment is a direct, central statement."
+      },
+      "guideline": "Score chunks and queries independently from the expressed ownership relationship and its centrality."
+    },
+    {
+      "index": 3,
+      "name": "routine-window schedule",
+      "definition": "The extent to which the text expresses routine service operating-window openings and their clock-time schedule.",
+      "anchors": {
+        "0.0": "No routine opening schedule is expressed, or the text explicitly distinguishes the subject from routine scheduling.",
+        "0.25": "A time or scheduling phrase appears incidentally without establishing a routine opening window.",
+        "0.50": "Routine timing is a meaningful topic, but the opening time or service association is incomplete.",
+        "0.75": "A routine opening window and its time are explicitly stated, with other operational details also present.",
+        "1.0": "The routine window opening schedule is the direct and central subject."
+      },
+      "guideline": "Score chunks and queries independently from whether routine opening-time semantics are central, not from numeric tokens alone."
+    },
+    {
+      "index": 4,
+      "name": "retention-duration policy",
+      "definition": "The extent to which the text expresses operational record-retention policy, especially audit-packet retention durations and the storage period for closed Cedar change records.",
+      "anchors": {
+        "0.0": "No retention or storage-duration policy is expressed, or retention is explicitly inapplicable.",
+        "0.25": "Retention is mentioned only incidentally without a duration or record type.",
+        "0.50": "A record type and retention concept are present, but the duration, repository, or applicability is incomplete.",
+        "0.75": "A specific record-retention duration or repository is explicitly stated as an operational policy.",
+        "1.0": "Retention duration and the governed record type are the direct and central subject."
+      },
+      "guideline": "Score chunks and queries independently from the centrality of record-retention semantics and their associated duration."
+    },
+    {
+      "index": 5,
+      "name": "Cedar after-hours authority",
+      "definition": "The extent to which the text expresses authorization requirements for Cedar-tier incidents beginning after 18:00 local facility time, including mandatory Indigo review and non-substitutable approval roles.",
+      "anchors": {
+        "0.0": "No Cedar after-hours authorization rule is expressed, or the text states that the rule does not apply.",
+        "0.25": "After-hours, Cedar, or approval language appears incidentally without the governing authorization relationship.",
+        "0.50": "Two relevant elements are present, such as Cedar and after-hours timing or approval, but the required authority is incomplete.",
+        "0.75": "The text explicitly states an after-hours Cedar approval requirement or identifies a prohibited substitute.",
+        "1.0": "The mandatory active-Indigo authorization rule for after-hours Cedar incidents is direct and central."
+      },
+      "guideline": "Score chunks and queries independently from the expressed Cedar, after-hours, and authority relationship."
+    },
+    {
+      "index": 6,
+      "name": "production-change safeguards",
+      "definition": "The extent to which the text expresses procedural controls that must occur around a Cedar production action, especially rollback-package freshness and incident-bridge setup before commands.",
+      "anchors": {
+        "0.0": "No Cedar production safeguard is expressed, or the safeguard is explicitly unnecessary.",
+        "0.25": "Production actions, rollback, or bridging are mentioned incidentally without a required control.",
+        "0.50": "A safeguard concept is meaningful but lacks a complete trigger, timing requirement, or condition.",
+        "0.75": "A concrete pre-action safeguard is explicitly required, such as a fresh rollback package or a bridge before the first command.",
+        "1.0": "The required Cedar production precondition or execution-control procedure is the direct and central subject."
+      },
+      "guideline": "Score chunks and queries independently from the procedural control and its trigger, timing, or validity condition."
+    },
+    {
+      "index": 7,
+      "name": "cycle-14 authority state",
+      "definition": "The extent to which the text expresses the active personnel, reviewer, or assignment state governed by operations cycle 14, including current versus prior authority.",
+      "anchors": {
+        "0.0": "No cycle-14 authority state is expressed, or cycle 14 is explicitly irrelevant.",
+        "0.25": "Cycle 14 or a personnel name appears incidentally without an authority or assignment relationship.",
+        "0.50": "A cycle-14 assignment or reviewer role is identified, but active status or scope is incomplete.",
+        "0.75": "The text explicitly identifies a cycle-14 assignee or active reviewer and its operational scope.",
+        "1.0": "The current cycle-14 authority or assignment state is the direct and central subject."
+      },
+      "guideline": "Score chunks and queries independently from explicit cycle-14 scope, active status, and authority semantics."
+    },
+    {
+      "index": 8,
+      "name": "routing and roster overrides",
+      "definition": "The extent to which the text expresses an exception that changes normal reviewer routing or supersedes an older personnel authority, especially Maple after-hours Copper substitution and cycle-14 roster overrides.",
+      "anchors": {
+        "0.0": "No routing or roster override is expressed, or normal routing is explicitly affirmed without exception.",
+        "0.25": "A different reviewer, older roster, or exception-like term is mentioned without a governing override.",
+        "0.50": "An alternative reviewer or assignment is meaningfully contrasted with the normal one, but the trigger or precedence is incomplete.",
+        "0.75": "A conditional routing substitution or precedence rule is explicitly stated.",
+        "1.0": "The exception or override itself, including its trigger and replacement authority, is direct and central."
+      },
+      "guideline": "Score chunks and queries independently from explicit deviation, precedence, and replacement-authority semantics."
+    },
+    {
+      "index": 9,
+      "name": "control-plane fallback",
+      "definition": "The extent to which the text expresses the operational response to Atlas control-plane unavailability, including stopping production actions and obtaining Reliability Desk authorization for paper fallback.",
+      "anchors": {
+        "0.0": "No control-plane outage or fallback procedure is expressed, or fallback is explicitly disallowed for an unrelated reason.",
+        "0.25": "Availability, outage, contact, or fallback language appears incidentally without an operational response.",
+        "0.50": "An outage response or fallback concept is meaningful, but the stop condition, contact path, or authorization boundary is incomplete.",
+        "0.75": "The text explicitly connects Atlas unavailability with stopping production work and contacting the designated desk.",
+        "1.0": "The Atlas outage stop-and-authorize fallback procedure is the direct and central subject."
+      },
+      "guideline": "Score chunks and queries independently from the expressed outage trigger, production stop, designated contact, and authorization boundary."
+    }
+  ]
+}
