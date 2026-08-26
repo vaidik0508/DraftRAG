@@ -1,30 +1,32 @@
 # DraftRAG validation run
 
-Generated: 2026-08-26 13:40:52 +0530
+Generated: 2026-08-26 16:28:15 +0530
 
 Configuration: top-k=5, max DraftRAG passes=4, seed=20260826.
 
+Scorecard: v6; benchmark-answer leakage check: passed.
+
 | System | Claim recall | Rich-question recall | Gold-chunk recall | Complete evidence | Retrieval precision | Context bloat | Source chars delivered |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| draftrag | 95.6% | 95.2% | 83.8% | 60.0% | 39.1% | 58.1% | 2156 |
+| draftrag | 94.5% | 90.5% | 84.3% | 60.0% | 43.8% | 56.2% | 1691 |
 
 ## Answer richness
 
 | System | Complete answers | Rich-question complete | Mean requested claims answered | Mean answer words | Claims per 100 words |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| draftrag | 83.3% | 85.7% | 2.67 | 39.7 | 8.50 |
+| draftrag | 83.3% | 71.4% | 2.67 | 32.8 | 11.49 |
 
 ## On-demand retrieval behavior
 
 | System | Retrieval events | Useful events | Late gold discovery | Query diversity | Total / unique chunks | Irrelevant chunks | Retrieval redundancy | Source duplication | Mean passes |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| draftrag | 1.58 | 83.3% | 5.0% | 8.1% | 7.92 / 5.92 | 3.67 | 12.1% | 54.9% | 2.17 |
+| draftrag | 1.33 | 83.3% | 0.0% | 7.8% | 6.25 / 5.33 | 3.08 | 6.1% | 47.8% | 2.00 |
 
 ## Query-time efficiency
 
 | System | Mean latency | p95 latency | Mean API calls | Total tokens |
 | --- | ---: | ---: | ---: | ---: |
-| draftrag | 18.06s | 26.45s | 3.33 | 108384 |
+| draftrag | 16.22s | 20.27s | 3.00 | 158713 |
 
 ## Interpretation limits
 

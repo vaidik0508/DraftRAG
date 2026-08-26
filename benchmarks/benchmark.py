@@ -25,7 +25,7 @@ CORPORA = ROOT / "corpora"
 DATASET = ROOT / "datasets" / "pilot.jsonl"
 ARTIFACTS = ROOT / "artifacts"
 RUNS = ROOT / "runs"
-SCORECARD_VERSION = 3
+SCORECARD_VERSION = 6
 PLACEHOLDER = re.compile(r"\[\[RETRIEVE:\s*(\{.*?\})\s*\]\]", re.DOTALL)
 WORD = re.compile(r"[a-z0-9]+")
 
@@ -193,6 +193,68 @@ QUESTION:
 {question}"""
 
 
+def scorecard_leaks(corpus, dims):
+    text = " ".join(
+        str(value)
+        for dimension in dims
+        for value in (
+            dimension.get("name", ""),
+            dimension.get("definition", ""),
+            *dimension.get("anchors", {}).values(),
+            *dimension.get("interpolation_examples", {}).values(),
+            dimension.get("guideline", ""),
+        )
+    ).lower()
+    leaks = []
+    for item in read_jsonl(DATASET):
+        if item["corpus"] != corpus or not item["answerable"]:
+            continue
+        question = item["question"].lower()
+        for aliases in item["claims"]:
+            if any(re.search(rf"(?<!\w){re.escape(alias.lower())}(?!\w)", question) for alias in aliases):
+                continue
+            leaked = next(
+                (
+                    alias
+                    for alias in aliases
+                    if re.search(rf"(?<!\w){re.escape(alias.lower())}(?!\w)", text)
+                ),
+                None,
+            )
+            if leaked:
+                leaks.append((item["id"], leaked))
+    return sorted(set(leaks))
+
+
+def write_embedding_rules(corpus, dims):
+    lines = [
+        "# LLM-generated retrieval scorecard",
+        "",
+        f"Corpus: `{corpus}`",
+        "",
+        "Every criterion below was generated for this corpus. Score chunks and queries",
+        "from these dimension-specific use cases, not from a generic numeric scale.",
+        "",
+    ]
+    for dimension in dims:
+        lines.extend([
+            f"## {dimension['index']}. {dimension['name']}",
+            "",
+            dimension["definition"],
+            "",
+            "### Corpus-specific anchors",
+            "",
+        ])
+        for value in ("0.0", "0.25", "0.50", "0.75", "1.0"):
+            lines.append(f"- **{value}:** {dimension['anchors'][value]}")
+        lines.extend(["", "### Corpus-specific between-anchor use cases", ""])
+        for value in ("0.20", "0.40", "0.60", "0.80"):
+            lines.append(f"- **{value}:** {dimension['interpolation_examples'][value]}")
+        lines.extend(["", f"**Scoring guidance:** {dimension['guideline']}", ""])
+    lines.extend(["## Machine-readable definition", "", "```json", json.dumps({"dimensions": dims}, indent=2), "```", ""])
+    (ARTIFACTS / corpus / "embedding_rules.md").write_text("\n".join(lines))
+
+
 def make_dimensions(client, corpus, chunks, dimensions=10):
     folder = ARTIFACTS / corpus
     folder.mkdir(parents=True, exist_ok=True)
@@ -200,6 +262,7 @@ def make_dimensions(client, corpus, chunks, dimensions=10):
     if path.exists():
         cached = json.loads(path.read_text())
         if cached.get("scorecard_version") == SCORECARD_VERSION:
+            write_embedding_rules(corpus, cached["dimensions"])
             return cached["dimensions"]
     prompt = f"""Design exactly {dimensions} reusable semantic scoring dimensions for retrieving from this corpus. A general LLM will score chunks and queries independently from 0.0 to 1.0. Cover recurring topics, identity/version, rules, procedures, measurements, and exceptions. Avoid dimensions tied to one fact.
 
@@ -212,20 +275,73 @@ or process affinities whose anchors state which recurring semantic region is exp
 A 1.0 should apply to a focused subset, not nearly every chunk, and a typical chunk should
 strongly activate only a few dimensions.
 
-Define anchors 0.0, 0.25, 0.50, 0.75, and 1.0. Reserve 0.0 for complete absence or opposition and 1.0 for direct, central expression. Partial anchors must be meaningfully distinct, while absent properties must remain zero.
+Define dimension-specific operational anchors at 0.0, 0.25, 0.50, 0.75, and 1.0.
+Reserve 0.0 for complete absence or opposition and 1.0 for direct, central expression.
+For every dimension, make 0.50 a concrete semantic midpoint: state when the property is
+meaningfully present but neither incidental nor dominant, including mixed or half-strength
+cases; never define it only as "medium". Every anchor must say when to use its value for
+this actual corpus and dimension by naming relevant concepts, relationships, roles, or
+evidence patterns. Generic anchor text copied across dimensions is invalid.
 
-Return ONLY JSON: {{"dimensions":[{{"index":0,"name":"short","definition":"absolute property","anchors":{{"0.0":"absent","0.25":"weak/incidental","0.50":"meaningful partial","0.75":"strong but incomplete","1.0":"direct and central"}},"guideline":"score chunks and queries independently"}}]}}. Indices must be 0 through {dimensions - 1}.
+For every dimension, generate corpus-specific use cases for 0.20, 0.40, 0.60, and 0.80.
+Each must describe actual evidence on that dimension: 0.20 lies just below its generated
+0.25 criterion, 0.40 between its 0.25 and 0.50 cases, 0.60 between its 0.50 and 0.75
+cases, and 0.80 between its 0.75 and 1.0 cases. Do not return only this mathematical
+relationship; instantiate every example using this corpus. Absent properties remain zero.
+
+CRITICAL ANTI-LEAKAGE RULE: corpus-specific means domain, evidence type, process, topic,
+and document structure—not answer-bearing payload. Never copy exact facts that a later
+question could ask for into dimensions, anchors, interpolation examples, or guidelines.
+Exclude exact measurements, dates, codes, symbols, extensions, credentials, people's
+names, version-to-value mappings, ordered procedures, and unique entity relationships.
+Use typed placeholders such as [target role], [version], [measurement], [identifier], or
+[required step]. The scorecard must help locate a fact without revealing the fact.
+
+Return ONLY JSON: {{"dimensions":[{{"index":0,"name":"short","definition":"absolute property","anchors":{{"0.0":"corpus-specific absence criterion","0.25":"corpus-specific weak use case","0.50":"corpus-specific midpoint use case","0.75":"corpus-specific strong use case","1.0":"corpus-specific central use case"}},"interpolation_examples":{{"0.20":"corpus-specific case","0.40":"corpus-specific case","0.60":"corpus-specific case","0.80":"corpus-specific case"}},"guideline":"corpus-specific scoring instructions"}}]}}. Indices must be 0 through {dimensions - 1}.
 
 CORPUS:
 {evidence_text(chunks)}"""
-    data = json_from_text(client.complete(prompt, "index_rules"))
-    dims = data["dimensions"]
-    if len(dims) != dimensions or [d.get("index") for d in dims] != list(range(dimensions)):
-        raise RuntimeError(f"Invalid scorecard for {corpus}")
     required_anchors = {"0.0", "0.25", "0.50", "0.75", "1.0"}
-    if any(not d.get("definition") or set(d.get("anchors", {})) != required_anchors for d in dims):
-        raise RuntimeError(f"Scorecard for {corpus} omitted absolute partial-value anchors")
+    required_interpolations = {"0.20", "0.40", "0.60", "0.80"}
+    retry_prompt = prompt
+    last_issue = "invalid scorecard output"
+    for attempt in range(1, 4):
+        try:
+            data = json_from_text(client.complete(retry_prompt, "index_rules"))
+            dims = data["dimensions"]
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
+            last_issue = str(error)
+            print(f"  invalid scorecard JSON; retry {attempt}/3: {error}", flush=True)
+            retry_prompt = prompt + (
+                "\n\nRETRY REQUIREMENT: return one complete, syntactically valid JSON object "
+                "matching the required schema, with no Markdown or commentary."
+            )
+            continue
+        if len(dims) != dimensions or [d.get("index") for d in dims] != list(range(dimensions)):
+            raise RuntimeError(f"Invalid scorecard for {corpus}")
+        if any(
+            not d.get("definition")
+            or not d.get("guideline")
+            or set(d.get("anchors", {})) != required_anchors
+            or set(d.get("interpolation_examples", {})) != required_interpolations
+            for d in dims
+        ):
+            raise RuntimeError(f"Scorecard for {corpus} omitted corpus-specific scale use cases")
+        leaks = scorecard_leaks(corpus, dims)
+        if not leaks:
+            break
+        last_issue = str(leaks)
+        print(f"  scorecard leakage detected; retry {attempt}/3: {leaks}", flush=True)
+        forbidden = ", ".join(sorted({alias for _, alias in leaks}))
+        retry_prompt = prompt + (
+            "\n\nRETRY REQUIREMENT: the previous scorecard leaked these answer strings: "
+            f"{forbidden}. Do not emit them or any substitute answer payload. Use typed "
+            "placeholders and structural evidence patterns only."
+        )
+    else:
+        raise RuntimeError(f"Scorecard for {corpus} failed validation: {last_issue}")
     path.write_text(json.dumps({"scorecard_version": SCORECARD_VERSION, "corpus": corpus, "dimensions": dims}, indent=2) + "\n")
+    write_embedding_rules(corpus, dims)
     return dims
 
 
@@ -248,11 +364,12 @@ def score_batch(client, dims, items, kind, attempts=3):
     prompt = f"""Score each TEXT against SCORECARD. Return ONLY JSON: {{"items":[{{"id":"same id","vector":[numbers]}}]}}. Each vector has exactly {len(dims)} values in index order, each 0.0 to 1.0. Judge explicit meaning; do not invent facts.
 
 {role_instruction} Treat dimensions as absolute axes, never as relevance to another item.
-Use 0.25 for weak/incidental evidence, 0.50 for meaningful partial evidence, and 0.75 for
-strong but incomplete evidence. Use 0.0 only when an axis is truly absent or opposed and
-1.0 only when direct, central, and unambiguous. Do not force nonzero values for absent
-properties. Values between anchors are allowed when justified. Score every item
-independently; other items in this batch are not references.
+For each coordinate, follow that dimension's generated corpus-specific anchors, 0.50
+midpoint use case, interpolation examples, and scoring guideline. Do not replace these
+with a generic numeric scale. Use an off-anchor decimal only when the text matches its
+generated use case or lies semantically between the two generated neighboring anchors.
+Do not force nonzero values for absent properties. Score every item independently; other
+items in this batch are not references.
 
 SCORECARD:
 {json.dumps(dims)}
@@ -343,7 +460,7 @@ def draftrag_prompt(question, dims, draft=None, evidence=None):
     prior = "" if draft is None else f"\nCURRENT DRAFT:\n{draft}\n"
     bank = "" if not evidence else f"\nCUMULATIVE SOURCE EVIDENCE:\n{evidence_text(evidence)}\n"
     phase = "Write an answer draft now." if draft is None else "Rewrite the entire draft using evidence."
-    return f"""You are an iterative answer writer. {phase} Never output a plan. Where a source fact is still needed, put this exact inline form where needed: [[RETRIEVE: {{"query":"standalone semantic search description","vector":[0.25,0.75]}}]]. The vector must contain exactly {len(dims)} scores from 0.0 to 1.0 in scorecard index order. Use partial values 0.25, 0.50, and 0.75 whenever an evidence need is weak, meaningful-but-partial, or strong-but-incomplete. Reserve 0.0 for an axis not needed and 1.0 for a direct central requirement; do not default most coordinates to binary endpoints and do not make absent axes nonzero. Multiple placeholders are allowed. Do not guess source facts. If evidence fully answers the question, return a concise final answer with no placeholders. If the source lacks a requested fact, explicitly say it is not specified after checking available evidence. Do not expose retrieval.
+    return f"""You are an iterative answer writer. {phase} Never output a plan. Where a source fact is still needed, put this exact inline form where needed: [[RETRIEVE: {{"query":"standalone semantic search description","vector":[0.25,0.75]}}]]. The vector must contain exactly {len(dims)} scores from 0.0 to 1.0 in scorecard index order. For each coordinate, follow that dimension's generated corpus-specific anchors, 0.50 midpoint use case, between-anchor examples, and scoring guidance in SCORECARD. Choose off-anchor decimals by comparing the evidence need with those generated use cases, not with a generic scale. Reserve 0.0 for an axis not needed and 1.0 for a direct central requirement; do not default most coordinates to binary endpoints and do not make absent axes nonzero. Multiple placeholders are allowed. Do not guess source facts. If evidence fully answers the question, return a concise final answer with no placeholders. If the source lacks a requested fact, explicitly say it is not specified after checking available evidence. Do not expose retrieval.
 
 SCORECARD:
 {json.dumps(dims)}
@@ -581,6 +698,11 @@ def run_system(client, system, item, resources, top_k, max_passes):
 
 def summarize(rows, skipped, index_metrics):
     summary = {"systems": {}, "skipped": skipped, "index_build": index_metrics}
+    if any(row["system"] == "draftrag" for row in rows):
+        summary["scorecard"] = {
+            "version": SCORECARD_VERSION,
+            "answer_leakage_check": "passed",
+        }
     for system in sorted({row["system"] for row in rows}):
         group = [row for row in rows if row["system"] == system and not row.get("error")]
         if not group:
@@ -625,7 +747,13 @@ def summarize(rows, skipped, index_metrics):
 
 def write_report(run_dir, summary, args):
     title = "Embedding RAG vs DraftRAG" if set(summary["systems"]) == {"embedding_rag", "draftrag"} else "DraftRAG validation run"
-    lines = [f"# {title}", "", f"Generated: {time.strftime('%Y-%m-%d %H:%M:%S %z')}", "", f"Configuration: top-k={args.top_k}, max DraftRAG passes={args.max_passes}, seed={args.seed}.", "", "| System | Claim recall | Rich-question recall | Gold-chunk recall | Complete evidence | Retrieval precision | Context bloat | Source chars delivered |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
+    lines = [f"# {title}", "", f"Generated: {time.strftime('%Y-%m-%d %H:%M:%S %z')}", "", f"Configuration: top-k={args.top_k}, max DraftRAG passes={args.max_passes}, seed={args.seed}."]
+    if summary.get("scorecard"):
+        lines += [
+            "",
+            f"Scorecard: v{summary['scorecard']['version']}; benchmark-answer leakage check: {summary['scorecard']['answer_leakage_check']}.",
+        ]
+    lines += ["", "| System | Claim recall | Rich-question recall | Gold-chunk recall | Complete evidence | Retrieval precision | Context bloat | Source chars delivered |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for system, values in summary["systems"].items():
         retrieval = "—" if values["mean_gold_chunk_recall"] is None else f"{values['mean_gold_chunk_recall']:.1%}"
         lines.append(f"| {system} | {values['mean_claim_recall']:.1%} | {values['rich_question_claim_recall']:.1%} | {retrieval} | {values['complete_evidence_rate']:.1%} | {values['mean_retrieval_precision_unique']:.1%} | {values['mean_context_bloat_ratio']:.1%} | {values['mean_source_context_chars_delivered']:.0f} |")

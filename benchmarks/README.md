@@ -130,14 +130,25 @@ DraftRAG batches ten chunks per score-generation call to control cost. The main 
 scores one chunk per call; because batching can introduce cross-item scoring drift, a
 one-chunk-per-call ablation remains necessary.
 
-Scorecard version 3 requires absolute, query-independent, corpus-discriminative dimensions and explicit anchors
-at `0.0`, `0.25`, `0.50`, `0.75`, and `1.0`. Chunk and query prompts use the same anchors
-but different roles: chunks score what they contain, while queries score what evidence
-they request. Index creation aborts when more than 10% of chunks are all-zero or fewer
-unique vectors exist than scorecard dimensions. A vector shared by more than 25% of
-chunks produces a warning because repeated semantic templates can be legitimate but
-cannot be distinguished inside that class. Partial values are encouraged when justified but are not required by quota;
-clear absence and exact central expression should remain `0.0` and `1.0`.
+Current scorecard generation requires absolute, query-independent,
+corpus-discriminative dimensions and explicit anchors at `0.0`, `0.25`, `0.50`, `0.75`,
+and `1.0`. Version 6 generates a concrete `0.50` midpoint plus corpus-specific use cases
+for `0.20`, `0.40`, `0.60`, and `0.80` under every dimension. Each corpus stores both
+machine-readable `scorecard.json` and human-readable `embedding_rules.md`.
+
+The use cases describe evidence patterns but may not copy answer-bearing payloads such as
+measurements, codes, names, symbols, mappings, or procedures. Before indexing, the
+benchmark rejects and regenerates any scorecard containing a gold answer alias that was
+not already present in its question. Chunk and query prompts use the same generated
+criteria but different roles: chunks score what they contain, while queries score what
+evidence they request.
+
+Index creation aborts when more than 10% of chunks are all-zero or fewer unique vectors
+exist than scorecard dimensions. A vector shared by more than 25% of chunks produces a
+warning because repeated semantic templates can be legitimate but cannot be distinguished
+inside that class. Partial values are calibrated relative positions and are encouraged
+when justified, but are not required by quota; clear absence and exact central expression
+should remain `0.0` and `1.0`.
 
 ## Success criteria
 
@@ -153,32 +164,33 @@ Generating many placeholders or writing a longer answer is not success by itself
 
 ## Canonical DraftRAG validation run
 
-### Partial-anchor prompt validation
+### Leakage-checked use-case anchors
 
-[`runs/20260826-133715/`](runs/20260826-133715/) records the canonical DraftRAG-only validation after
-introducing absolute, corpus-discriminative dimensions and calibrated partial anchors.
-It is not the embedding comparison, but it measures the prompt change against the same
-12 questions:
+[`runs/20260826-162500/`](runs/20260826-162500/) is the canonical DraftRAG-only validation
+using scorecard v6. All three generated rules files passed the benchmark-answer leakage
+check before indexing. It is not the embedding comparison, but it evaluates the same 12
+questions:
 
-| Metric | Original prompt | Scorecard v3 |
+| Metric | Earlier v3 record (unchecked) | Leakage-checked v6 |
 | --- | ---: | ---: |
-| Claim recall | 54.2% | 95.6% |
-| Gold-chunk recall | 36.0% | 83.8% |
-| Unique retrieval precision | 19.2% | 39.1% |
-| Context-bloat ratio | 80.6% | 58.1% |
-| Source characters delivered | 3,184 | 2,156 |
-| Retrieval redundancy | 26.7% | 12.1% |
-| Rich-question claim recall | 64.3% | 95.2% |
-| Rich-question complete rate | 42.9% | 85.7% |
+| Claim recall | 95.6% | 94.5% |
+| Gold-chunk recall | 83.8% | 84.3% |
+| Unique retrieval precision | 39.1% | 43.8% |
+| Context-bloat ratio | 58.1% | 56.3% |
+| Source characters delivered | 2,156 | 1,691 |
+| Retrieval redundancy | 12.1% | 6.1% |
+| Rich-question claim recall | 95.2% | 90.5% |
+| Rich-question complete rate | 85.7% | 71.4% |
 
-The complete ranked per-placeholder trace is in the run's
-[`RETRIEVAL_AUDIT.md`](runs/20260826-133715/RETRIEVAL_AUDIT.md). Remaining failures show
-the ten-axis budget can still merge different facts—for example, water, moons, and
-chemical symbols share one counterfactual-science axis.
+The result is mixed: v6 retrieved slightly more gold evidence with better precision,
+less duplication, and 21.6% less delivered source context, while overall claim recall
+fell 1.1 percentage points and rich-question completeness fell. All earlier v3–v5 runs
+are noncanonical because their generated rules were not protected against copying
+answer-bearing facts into the context; v5 visibly exhibited that contamination.
 
-Older development runs were removed so [`runs/`](runs/) contains only this canonical
-scorecard-v3 result. It is not the requested embedding-RAG comparison; that comparison
-still requires an Azure embedding deployment.
+The complete ranked per-placeholder trace is in
+[`RETRIEVAL_AUDIT.md`](runs/20260826-162500/RETRIEVAL_AUDIT.md). The direct embedding-RAG
+comparison still requires an Azure embedding deployment.
 
 The positional control is motivated by
 [Lost in the Middle](https://arxiv.org/abs/2307.03172). Separating retrieval coverage from

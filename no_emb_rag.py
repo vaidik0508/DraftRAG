@@ -115,34 +115,77 @@ topic/family/context affinities whose names and anchors identify which recurring
 region is expressed. A score of 1.0 should apply to a focused subset, not nearly every
 chunk. Design the set so a typical chunk strongly activates only a few dimensions.
 
-Define calibrated anchors at 0.0, 0.25, 0.50, 0.75, and 1.0. Reserve 0.0 for complete
-absence or explicit opposition and 1.0 for direct, central, unambiguous expression.
-Make the partial anchors meaningfully distinct so scorers use the full continuum. Do not
-force a nonzero score when the property is absent.
+Define DIMENSION-SPECIFIC, operational anchors at 0.0, 0.25, 0.50, 0.75, and 1.0.
+Reserve 0.0 for complete absence or explicit opposition and 1.0 for direct, central,
+unambiguous expression. The 0.50 anchor is the required semantic midpoint: state exactly
+when this property is meaningfully present but neither incidental nor dominant, including
+mixed or half-strength cases. Do not describe it only as "medium" or "partial".
+
+Every anchor description MUST say when to use that value for this actual corpus and
+dimension, naming relevant corpus concepts, relationships, roles, or evidence patterns.
+Generic descriptions copied across dimensions, such as only "weak", "medium", or
+"strong", are invalid.
+
+For each dimension, also generate corpus-specific interpolation examples for 0.20, 0.40,
+0.60, and 0.80. State what actual evidence pattern on that dimension would justify each
+value: 0.20 falls just below its generated 0.25 use case, 0.40 between its 0.25 and 0.50
+use cases, 0.60 between its 0.50 and 0.75 use cases, and 0.80 between its 0.75 and 1.0
+use cases. Do not merely repeat this mathematical relationship in the returned examples;
+instantiate it using the corpus. Do not force a nonzero score when the property is absent.
+
+CRITICAL ANTI-LEAKAGE RULE: corpus-specific means the corpus's domain, evidence type,
+process, topic, and document structure—not its answer-bearing payload. Never copy exact
+facts that a later user might ask for into a dimension, anchor, interpolation example, or
+guideline. Exclude exact measurements, dates, codes, symbols, phone numbers, credentials,
+people's names, version-to-value mappings, ordered procedures, and unique entity
+relationships. Describe evidence patterns with typed placeholders such as [target role],
+[version], [measurement], [identifier], or [required step]. The rules must help locate a
+fact without revealing the fact.
 
 CORPUS SAMPLE:
 {sample}
 
 Return ONLY JSON with this exact shape:
 {{"dimensions":[{{"index":0,"name":"short_name","definition":"absolute property",
-"anchors":{{"0.0":"absent","0.25":"weak/incidental","0.50":"meaningful partial",
-"0.75":"strong but incomplete","1.0":"direct and central"}},
-"guideline":"how to score chunks and queries independently on this axis"}}]}}
+"anchors":{{"0.0":"corpus-specific absence criterion","0.25":"corpus-specific weak use case",
+"0.50":"corpus-specific semantic midpoint use case","0.75":"corpus-specific strong use case",
+"1.0":"corpus-specific direct central use case"}},
+"interpolation_examples":{{"0.20":"corpus-specific case","0.40":"corpus-specific case",
+"0.60":"corpus-specific case","0.80":"corpus-specific case"}},
+"guideline":"corpus-specific instructions for scoring chunks and queries independently"}}]}}
 Indices must be consecutive from 0 through {dimensions - 1}."""
     data = json_from_text(call_llm(prompt))
     dims = data.get("dimensions", [])
     if len(dims) != dimensions or [d.get("index") for d in dims] != list(range(dimensions)):
         raise RuntimeError("The model did not return the requested consecutive dimensions.")
     required_anchors = {"0.0", "0.25", "0.50", "0.75", "1.0"}
-    if any(not d.get("definition") or set(d.get("anchors", {})) != required_anchors for d in dims):
-        raise RuntimeError("Every dimension must include an absolute definition and five anchors.")
+    required_interpolations = {"0.20", "0.40", "0.60", "0.80"}
+    if any(
+        not d.get("definition")
+        or not d.get("guideline")
+        or set(d.get("anchors", {})) != required_anchors
+        or set(d.get("interpolation_examples", {})) != required_interpolations
+        for d in dims
+    ):
+        raise RuntimeError(
+            "Every dimension must include an absolute definition, five anchors, and four "
+            "corpus-specific interpolation examples."
+        )
     rendered = "# LLM-generated retrieval scorecard\n\n"
-    rendered += "Score every chunk and query from 0.0 to 1.0 on the same dimensions.\n\n"
+    rendered += (
+        "Every anchor and between-anchor example below was generated for this corpus. "
+        "Score chunks and queries from these dimension-specific use cases rather than "
+        "from a generic numeric scale.\n\n"
+    )
     for d in dims:
         rendered += f"## {d['index']}. {d['name']}\n\n{d['definition']}\n\n"
+        rendered += "### Corpus-specific anchors\n\n"
         for value in ("0.0", "0.25", "0.50", "0.75", "1.0"):
             rendered += f"- **{value}:** {d['anchors'][value]}\n"
-        rendered += f"- **Scoring guidance:** {d['guideline']}\n\n"
+        rendered += "\n### Corpus-specific between-anchor use cases\n\n"
+        for value in ("0.20", "0.40", "0.60", "0.80"):
+            rendered += f"- **{value}:** {d['interpolation_examples'][value]}\n"
+        rendered += f"\n**Scoring guidance:** {d['guideline']}\n\n"
     rendered += "## Machine-readable definition\n\n```json\n"
     rendered += json.dumps(data, indent=2) + "\n```\n"
     RULES.write_text(rendered)
@@ -185,12 +228,12 @@ of exactly {len(dims)} numbers from 0.0 to 1.0, ordered by index. Judge explicit
 matter and useful implications; do not invent facts.
 
 {role_instruction} Treat every dimension as an absolute axis, never as relevance to an
-unstated comparison text. Use calibrated partial values: 0.25 for weak/incidental
-evidence, 0.50 for meaningful partial evidence, and 0.75 for strong but incomplete
-evidence. Use 0.0 only when the property is truly absent or opposed, and 1.0 only when it
-is direct, central, and unambiguous. Values between anchors are allowed when justified.
-Do not add a nonzero value merely because the text is generally related. Score this text
-independently from any other item.
+unstated comparison text. For each coordinate, follow that dimension's generated,
+corpus-specific anchors, 0.50 midpoint use case, interpolation examples, and scoring
+guideline. Do not replace them with a generic weak/medium/strong scale. Use an off-anchor
+decimal only when the text fits the generated use case or lies semantically between its
+two generated neighboring anchors. Do not add a nonzero value merely because the text is
+generally related. Score this text independently from any other item.
 
 SCORECARD:
 {json.dumps(dims)}
@@ -273,10 +316,13 @@ Always output an answer draft directly—never output a plan or a list of querie
 Where a specific source fact is needed, insert an inline placeholder exactly like:
 [[RETRIEVE: {{"query":"a standalone semantic search description","vector":[0.1,0.2]}}]]
 The vector MUST contain exactly one 0.0-to-1.0 score per scorecard dimension in index
-order. Use 0.25, 0.50, and 0.75 for partial semantic demand whenever appropriate. Reserve
-0.0 for an axis the query does not need and 1.0 for a direct, central requirement; do not
-default most coordinates to binary endpoints. Put the placeholder at the exact point
-where its evidence is needed. You may put
+order. For EACH coordinate, follow that dimension's corpus-specific anchors,
+dimension-specific 0.50 midpoint, between-anchor use cases, and scoring guidance in the
+SCORECARD below. Choose values such as 0.20, 0.40, 0.60, or 0.80 only by comparing the
+query's evidence need with those generated use cases—not from a generic numeric scale.
+Reserve 0.0 for an axis the query does not need and 1.0 for a direct, central requirement;
+do not default most coordinates to binary endpoints or invent density. Put the placeholder
+at the exact point where its evidence is needed. You may put
 multiple placeholders in one draft. Never claim that retrieved text says something it
 does not. Evidence in retrieved blocks or the cumulative evidence section is already
 source evidence: use it directly and NEVER request the same fact again. If that evidence

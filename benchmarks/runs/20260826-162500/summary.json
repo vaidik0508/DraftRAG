@@ -1,0 +1,100 @@
+{
+  "scorecard": {
+    "version": 6,
+    "answer_leakage_check": "passed"
+  },
+  "systems": {
+    "draftrag": {
+      "questions": 12,
+      "mean_claim_recall": 0.9445,
+      "all_claims_rate": 0.8333,
+      "mean_gold_chunk_recall": 0.8433,
+      "mean_latency_ms": 16216.22,
+      "p50_latency_ms": 16617.51,
+      "p95_latency_ms": 20274.24,
+      "mean_calls": 3,
+      "total_tokens": 158713,
+      "convergence_rate": 1,
+      "mean_passes": 2,
+      "mean_retrieval_precision_unique": 0.4376,
+      "mean_context_bloat_ratio": 0.5625,
+      "mean_source_context_chars_delivered": 1690.67,
+      "mean_unique_chunks": 5.33,
+      "mean_total_chunks": 6.25,
+      "mean_irrelevant_chunks": 3.08,
+      "mean_redundant_retrieval_rate": 0.0611,
+      "mean_source_duplication_ratio": 0.4775,
+      "mean_retrieval_events": 1.33,
+      "mean_placeholder_precision": 0.8333,
+      "mean_late_gold_discovery": 0.0,
+      "mean_query_diversity": 0.0775,
+      "mean_answer_claims": 2.67,
+      "mean_answer_words": 32.83,
+      "mean_answer_detail_density": 11.4906,
+      "rich_question_claim_recall": 0.9048,
+      "rich_question_complete_rate": 0.7143,
+      "complete_evidence_rate": 0.6
+    }
+  },
+  "skipped": {},
+  "index_build": {
+    "by_corpus": {
+      "counterfactual_kb": {
+        "draftrag": {
+          "calls": 0,
+          "llm_calls": 0,
+          "embedding_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "api_latency_ms": 0,
+          "request_input_chars": 0,
+          "models": []
+        }
+      },
+      "fictional_ops": {
+        "draftrag": {
+          "calls": 8,
+          "llm_calls": 8,
+          "embedding_calls": 0,
+          "input_tokens": 38611,
+          "output_tokens": 14884,
+          "total_tokens": 53495,
+          "api_latency_ms": 176994.79,
+          "request_input_chars": 172336,
+          "models": [
+            "gpt-5.6-luna"
+          ]
+        }
+      },
+      "versioned_manual": {
+        "draftrag": {
+          "calls": 8,
+          "llm_calls": 8,
+          "embedding_calls": 0,
+          "input_tokens": 35549,
+          "output_tokens": 15379,
+          "total_tokens": 50928,
+          "api_latency_ms": 185560.85,
+          "request_input_chars": 166174,
+          "models": [
+            "gpt-5.6-luna"
+          ]
+        }
+      }
+    },
+    "total": {
+      "calls": 16,
+      "llm_calls": 16,
+      "embedding_calls": 0,
+      "input_tokens": 74160,
+      "output_tokens": 30263,
+      "total_tokens": 104423,
+      "api_latency_ms": 362555.64,
+      "request_input_chars": 338510,
+      "models": [
+        "gpt-5.6-luna"
+      ]
+    }
+  }
+}

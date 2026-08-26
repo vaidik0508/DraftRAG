@@ -1,21 +1,21 @@
 {
-  "fingerprint": "c9ef71d831fa7d999d0e73a611f1b5546037b178c328c0940a5ea37bd405a553",
+  "fingerprint": "7923cc79e95b5f97bd5fc846982c24d57d48e16df9cbc1b7cc3294926fee20df",
   "chunks": [
     {
       "id": "ver-024",
       "title": "CinderNode 3.2 reference card",
       "text": "CinderNode 3.2 reference card\n\nCinderNode version 3.2 uses diagnostic port R-34, firmware Lily-8, and a 45-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -23,16 +23,16 @@
       "title": "AsterHub 1.0 reference card",
       "text": "AsterHub 1.0 reference card\n\nAsterHub version 1.0 uses diagnostic port R-56, firmware Lily-3, and a 37-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -40,16 +40,16 @@
       "title": "DeltaCradle 2.3 reference card",
       "text": "DeltaCradle 2.3 reference card\n\nDeltaCradle version 2.3 uses diagnostic port R-41, firmware Lily-6, and a 37-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -57,16 +57,16 @@
       "title": "DeltaCradle 4.3 reference card",
       "text": "DeltaCradle 4.3 reference card\n\nDeltaCradle version 4.3 uses diagnostic port R-23, firmware Lily-6, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -74,16 +74,16 @@
       "title": "BeaconPad 2.1 reference card",
       "text": "BeaconPad 2.1 reference card\n\nBeaconPad version 2.1 uses diagnostic port R-57, firmware Lily-4, and a 38-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -91,16 +91,16 @@
       "title": "FluxBay 2.5 reference card",
       "text": "FluxBay 2.5 reference card\n\nFluxBay version 2.5 uses diagnostic port R-49, firmware Lily-5, and a 45-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
-        0.0,
+        0.2,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -108,13 +108,13 @@
       "title": "Serial identification",
       "text": "Serial identification\n\nA NovaDock serial beginning with VL identifies hardware version 2.2. Prefix VK identifies version 2.1, and prefix VX identifies version 3.0.",
       "vector": [
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
         1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         0.0,
         0.0,
         0.0
@@ -125,16 +125,16 @@
       "title": "CinderNode 1.2 reference card",
       "text": "CinderNode 1.2 reference card\n\nCinderNode version 1.2 uses diagnostic port R-28, firmware Lily-11, and a 39-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -142,16 +142,16 @@
       "title": "CinderNode 1.2 reference card",
       "text": "CinderNode 1.2 reference card\n\nCinderNode version 1.2 uses diagnostic port R-52, firmware Lily-8, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -159,16 +159,16 @@
       "title": "CinderNode 3.2 reference card",
       "text": "CinderNode 3.2 reference card\n\nCinderNode version 3.2 uses diagnostic port R-46, firmware Lily-11, and a 42-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -177,15 +177,15 @@
       "text": "NovaDock 2.2 firmware\n\nThe approved firmware family for NovaDock 2.2 is Orchid-8. Orchid-7 is retained only for version 2.1.",
       "vector": [
         0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
         1.0,
         0.0,
-        0.0
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5
       ]
     },
     {
@@ -193,16 +193,16 @@
       "title": "BeaconPad 2.1 reference card",
       "text": "BeaconPad 2.1 reference card\n\nBeaconPad version 2.1 uses diagnostic port R-45, firmware Lily-10, and a 41-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -210,16 +210,16 @@
       "title": "DeltaCradle 4.3 reference card",
       "text": "DeltaCradle 4.3 reference card\n\nDeltaCradle version 4.3 uses diagnostic port R-35, firmware Lily-9, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -230,12 +230,12 @@
         0.0,
         0.0,
         0.0,
+        0.5,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.75,
         0.0
       ]
     },
@@ -253,7 +253,7 @@
         0.0,
         0.0,
         0.0,
-        0.75
+        0.0
       ]
     },
     {
@@ -261,16 +261,16 @@
       "title": "AsterHub 1.0 reference card",
       "text": "AsterHub 1.0 reference card\n\nAsterHub version 1.0 uses diagnostic port R-20, firmware Lily-3, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -278,16 +278,16 @@
       "title": "DeltaCradle 2.3 reference card",
       "text": "DeltaCradle 2.3 reference card\n\nDeltaCradle version 2.3 uses diagnostic port R-65, firmware Lily-3, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -295,16 +295,16 @@
       "title": "EchoPort 1.4 reference card",
       "text": "EchoPort 1.4 reference card\n\nEchoPort version 1.4 uses diagnostic port R-60, firmware Lily-7, and a 41-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -312,16 +312,16 @@
       "title": "BeaconPad 2.1 reference card",
       "text": "BeaconPad 2.1 reference card\n\nBeaconPad version 2.1 uses diagnostic port R-33, firmware Lily-7, and a 44-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -329,16 +329,16 @@
       "title": "AsterHub 3.0 reference card",
       "text": "AsterHub 3.0 reference card\n\nAsterHub version 3.0 uses diagnostic port R-62, firmware Lily-9, and a 43-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -348,14 +348,14 @@
       "vector": [
         0.0,
         0.0,
+        0.5,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.0,
-        1.0
+        0.5
       ]
     },
     {
@@ -363,16 +363,16 @@
       "title": "CinderNode 1.2 reference card",
       "text": "CinderNode 1.2 reference card\n\nCinderNode version 1.2 uses diagnostic port R-64, firmware Lily-11, and a 45-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -382,14 +382,14 @@
       "vector": [
         0.0,
         0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -400,13 +400,13 @@
         0.0,
         0.0,
         0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -418,12 +418,12 @@
         0.0,
         0.0,
         0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -437,10 +437,10 @@
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -451,13 +451,13 @@
         0.0,
         0.0,
         0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -467,14 +467,14 @@
       "vector": [
         0.0,
         0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -482,16 +482,16 @@
       "title": "CinderNode 1.2 reference card",
       "text": "CinderNode 1.2 reference card\n\nCinderNode version 1.2 uses diagnostic port R-40, firmware Lily-5, and a 36-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -505,10 +505,10 @@
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -516,16 +516,16 @@
       "title": "CinderNode 3.2 reference card",
       "text": "CinderNode 3.2 reference card\n\nCinderNode version 3.2 uses diagnostic port R-22, firmware Lily-5, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
-        1.0,
+        0.2,
         0.0,
+        0.2,
         0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.2,
+        0.8,
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -535,14 +535,14 @@
       "vector": [
         0.0,
         0.0,
+        0.75,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.0,
-        1.0
+        0.5
       ]
     },
     {
@@ -550,16 +550,16 @@
       "title": "EchoPort 1.4 reference card",
       "text": "EchoPort 1.4 reference card\n\nEchoPort version 1.4 uses diagnostic port R-36, firmware Lily-10, and a 32-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
         0.0,
+        0.2,
         0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.2,
+        0.8,
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -567,16 +567,16 @@
       "title": "CinderNode 3.2 reference card",
       "text": "CinderNode 3.2 reference card\n\nCinderNode version 3.2 uses diagnostic port R-58, firmware Lily-5, and a 39-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
-        1.0,
+        0.2,
         0.0,
+        0.2,
         0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.2,
+        0.8,
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -586,14 +586,14 @@
       "vector": [
         0.0,
         0.0,
+        0.5,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.0,
-        0.75
+        0.5
       ]
     },
     {
@@ -601,16 +601,16 @@
       "title": "AsterHub 1.0 reference card",
       "text": "AsterHub 1.0 reference card\n\nAsterHub version 1.0 uses diagnostic port R-44, firmware Lily-9, and a 40-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
         0.0,
-        1.0,
+        0.2,
         0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.2,
+        0.8,
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -618,16 +618,16 @@
       "title": "AsterHub 3.0 reference card",
       "text": "AsterHub 3.0 reference card\n\nAsterHub version 3.0 uses diagnostic port R-38, firmware Lily-3, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
         0.0,
-        1.0,
+        0.2,
         0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.2,
+        0.8,
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -638,13 +638,13 @@
         0.0,
         0.0,
         0.0,
+        0.6,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.75,
-        0.0
+        0.5
       ]
     },
     {
@@ -652,16 +652,16 @@
       "title": "EchoPort 3.4 reference card",
       "text": "EchoPort 3.4 reference card\n\nEchoPort version 3.4 uses diagnostic port R-54, firmware Lily-10, and a 35-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
         0.0,
+        0.2,
         0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.2,
+        0.8,
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -669,16 +669,16 @@
       "title": "EchoPort 3.4 reference card",
       "text": "EchoPort 3.4 reference card\n\nEchoPort version 3.4 uses diagnostic port R-30, firmware Lily-4, and a 41-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
         0.0,
+        0.2,
         0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.2,
+        0.8,
+        0.5,
+        0.5,
+        0.5,
+        0.8
       ]
     },
     {
@@ -690,12 +690,12 @@
         0.0,
         0.0,
         0.0,
-        0.0,
-        0.0,
-        0.0,
         1.0,
         0.0,
-        0.0
+        0.0,
+        0.0,
+        0.0,
+        0.75
       ]
     },
     {
@@ -709,10 +709,10 @@
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -724,12 +724,12 @@
         0.0,
         0.0,
         0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -741,12 +741,12 @@
         0.0,
         0.0,
         0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -757,13 +757,13 @@
         0.0,
         0.0,
         0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -773,14 +773,14 @@
       "vector": [
         0.0,
         0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -789,15 +789,15 @@
       "text": "AsterHub 3.0 reference card\n\nAsterHub version 3.0 uses diagnostic port R-26, firmware Lily-9, and a 37-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
         0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -808,13 +808,13 @@
         0.0,
         0.0,
         0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
         1.0,
-        0.0
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5
       ]
     },
     {
@@ -825,13 +825,13 @@
         0.0,
         0.0,
         0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -840,15 +840,15 @@
       "text": "AsterHub 1.0 reference card\n\nAsterHub version 1.0 uses diagnostic port R-32, firmware Lily-6, and a 43-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
         0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.75
       ]
     },
     {
@@ -856,16 +856,16 @@
       "title": "DeltaCradle 2.3 reference card",
       "text": "DeltaCradle 2.3 reference card\n\nDeltaCradle version 2.3 uses diagnostic port R-53, firmware Lily-9, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -873,16 +873,16 @@
       "title": "AsterHub 3.0 reference card",
       "text": "AsterHub 3.0 reference card\n\nAsterHub version 3.0 uses diagnostic port R-50, firmware Lily-6, and a 31-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -890,16 +890,16 @@
       "title": "BeaconPad 4.1 reference card",
       "text": "BeaconPad 4.1 reference card\n\nBeaconPad version 4.1 uses diagnostic port R-63, firmware Lily-10, and a 44-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -907,16 +907,16 @@
       "title": "AsterHub 1.0 reference card",
       "text": "AsterHub 1.0 reference card\n\nAsterHub version 1.0 uses diagnostic port R-68, firmware Lily-6, and a 34-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -924,16 +924,16 @@
       "title": "FluxBay 2.5 reference card",
       "text": "FluxBay 2.5 reference card\n\nFluxBay version 2.5 uses diagnostic port R-37, firmware Lily-11, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
-        0.0,
+        0.2,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -941,16 +941,16 @@
       "title": "BeaconPad 4.1 reference card",
       "text": "BeaconPad 4.1 reference card\n\nBeaconPad version 4.1 uses diagnostic port R-27, firmware Lily-10, and a 38-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
+        0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -958,16 +958,16 @@
       "title": "FluxBay 4.5 reference card",
       "text": "FluxBay 4.5 reference card\n\nFluxBay version 4.5 uses diagnostic port R-31, firmware Lily-5, and a 42-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
-        0.0,
+        0.2,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -975,16 +975,16 @@
       "title": "FluxBay 4.5 reference card",
       "text": "FluxBay 4.5 reference card\n\nFluxBay version 4.5 uses diagnostic port R-67, firmware Lily-5, and a 33-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
-        0.0,
+        0.2,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -992,16 +992,16 @@
       "title": "EchoPort 3.4 reference card",
       "text": "EchoPort 3.4 reference card\n\nEchoPort version 3.4 uses diagnostic port R-66, firmware Lily-4, and a 32-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
+        0.2,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     },
     {
@@ -1009,16 +1009,16 @@
       "title": "FluxBay 2.5 reference card",
       "text": "FluxBay 2.5 reference card\n\nFluxBay version 2.5 uses diagnostic port R-61, firmware Lily-8, and a 42-degree-Celsius ambient ceiling. These values do not apply to any NovaDock revision, even when enclosure colors match.",
       "vector": [
-        0.0,
+        0.2,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0.5,
+        0.5,
+        0.5,
+        0.6
       ]
     }
   ]

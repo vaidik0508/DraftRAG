@@ -21,10 +21,10 @@ embedding RAG with DraftRAG on fictional, version-conflicting, and counterfactua
 corpora. It measures on-demand evidence accuracy, context bloat, late discovery, query
 diversity, and multi-part answer richness.
 
-The current [canonical DraftRAG validation run](benchmarks/runs/20260826-133715/REPORT.md)
-achieved 95.6% claim recall and 83.8% gold-chunk recall with scorecard v3. This recorded
-run validates DraftRAG only; the direct embedding-RAG comparison still requires an Azure
-embedding deployment.
+The current [canonical DraftRAG validation run](benchmarks/runs/20260826-162500/REPORT.md)
+achieved 94.5% claim recall and 84.3% gold-chunk recall with leakage-checked scorecard v6.
+This recorded run validates DraftRAG only; the direct embedding-RAG comparison still
+requires an Azure embedding deployment.
 
 ## The original idea
 
@@ -47,6 +47,39 @@ another information gap. This continues until the answer is complete.
 This makes retrieval part of drafting instead of a separate pre-answer orchestration
 step.
 
+## Seed idea and motivation
+
+The seed idea is that a separate embedding model—and hundreds or thousands of opaque
+dimensions—may not always be necessary to index a focused document collection usefully.
+A general-purpose LLM has already learned broad semantic relationships from large-scale
+training. After reading a sample of a project's source material and its retrieval goal,
+it can design a small, corpus-specific semantic scorecard: a miniature, interpretable
+representation system tailored to that project.
+
+The same kind of LLM then applies those guidelines to both source chunks and retrieval
+queries. This may align retrieval with the concepts, distinctions, and biases the answer
+writer itself uses while reasoning and narrating an answer. Each coordinate has a written
+meaning, so the representation can be inspected and revised instead of remaining an
+opaque learned vector.
+
+Traditional RAG normally retrieves context before generation. A broad initial query can
+bring in irrelevant or redundant chunks, increasing prompt size and potentially
+distracting the answer model. DraftRAG instead lets the answer take shape first. When the
+writer reaches a specific evidence gap, it creates an inline query and score vector at
+that exact location. Only the matching local chunks are added, and later drafts can ask
+for different evidence as new gaps emerge.
+
+The motivating hypothesis is therefore:
+
+> With explicit corpus-specific guidelines, an LLM can act as a useful low-dimensional
+> semantic representation generator, while answer-local retrieval can reduce unnecessary
+> context and retrieve more diverse evidence on demand.
+
+This remains an experimental hypothesis. DraftRAG does not show that a general LLM is
+universally a better embedder, and its scorecard vectors are not learned dense
+embeddings. The benchmark is intended to test when this interpretable, shared-model
+representation is useful and where its limited dimensional capacity fails.
+
 ## How it works
 
 ### 1. Generate a corpus-specific scorecard
@@ -56,10 +89,14 @@ dimension includes an absolute, query-independent definition plus calibrated anc
 `0.0`, `0.25`, `0.50`, `0.75`, and `1.0`. `N` is configurable and defaults to 10.
 
 `0.0` is reserved for a property that is truly absent or opposed, while `1.0` means the
-property is direct and central. Partial values represent weak, meaningful-partial, or
-strong-but-incomplete evidence. Missing properties are not given artificial nonzero
-scores merely to make a vector dense. A vector becomes dense only when the text genuinely
-touches many dimensions; density is an outcome of scoring, not a quota.
+property is direct and central. Every dimension must define `0.50` as a concrete semantic
+midpoint: meaningfully present, but neither incidental nor dominant. The scorer places
+other decimals relative to neighboring anchors—for example, `0.40` is below that midpoint,
+`0.60` is above it, and `0.80` is stronger than the `0.75` anchor but short of direct,
+central evidence. Partial values are calibrated positions, not arbitrary confidence
+scores. Missing properties are not given artificial nonzero values merely to make a
+vector dense. A vector becomes dense only when the text genuinely touches many
+dimensions; density is an outcome of scoring, not a quota.
 
 Example dimension families from the included test corpus:
 
@@ -70,7 +107,11 @@ Example dimension families from the included test corpus:
 - federal-state relations
 
 The complete human-readable and machine-readable definition is stored as
-`embedding_rules.md` inside the selected data directory.
+`embedding_rules.md` inside the selected data directory. For every dimension, the LLM
+generates corpus-specific descriptions for the five anchors and actual between-anchor
+use cases at `0.20`, `0.40`, `0.60`, and `0.80`; these are not static generic labels.
+The complete file is passed to every answer-writing draft, while its machine-readable
+dimensions are used to score both indexed chunks and retrieval queries.
 
 ### 2. Chunk and index the source
 
